@@ -1,0 +1,138 @@
+---
+layout: page
+title: People
+---
+
+
+<div class="home">
+
+    {% assign researchers = site.data.members | where: "center", "labs" %}
+    {% assign engineers = site.data.members | where: "center", "R&D" %}
+    {% assign alumni = site.data.members | where: "center", "alumni" %}
+
+    <h2>Researchers</h2>
+    <div class="people-list" style="width:100%; display:flex; flex-wrap:wrap;"> 
+
+    {% for people in researchers %}
+    <div style="display:flex; width:45%; max-width: 45%; margin:1% 1% 1% 1%; border: 1px solid black; padding:1%; border-radius: 5px; background-color: rgb(242, 244, 255); 
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
+        <div class="people-picture" style="margin-right:2%">
+            {% if !people.photo %}
+            <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo }}" />
+            {% else %}
+            <img width="92px" height="92px" src="images/people/default.svg" />
+            {% endif %}
+        </div>
+        <div class="people-infos">
+        <div>
+            <span style="font-weight: 600;">
+            {{ people.name }}
+            </span> -
+            <span>
+            {{ people.title }}
+            </span>
+        </div>
+
+        {% if people.topics %}
+        <div style="font-style: italic;">
+            <span>{{ people.topics }}</span>
+        </div>
+        {% endif %}
+
+        {% if people.url %}
+        <br />
+        <div>
+            Website: <a href="{{ people.url }}">{{ people.url }}</a>
+        </div>
+        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    <br />
+
+
+    <h2>Engineers</h2>
+    <div class="people-list" style="width:100%; display:flex; flex-wrap:wrap;"> 
+
+    {% for people in engineers %}
+    <div style="display:flex; width:45%; max-width: 45%; margin:1% 1% 1% 1%; border: 1px solid black; padding:1%; border-radius: 5px; background-color: rgb(255, 249, 238); 
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
+        <div class="people-picture" style="margin-right:2%">
+            {% if !people.photo %}
+            <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo }}" />
+            {% else %}
+            <img width="92px" height="92px" src="images/people/default.svg" />
+            {% endif %}
+        </div>
+        <div class="people-infos">
+        <div>
+            <span style="font-weight: 600;">
+            {{ people.name }}
+            </span> -
+            <span>
+            {{ people.title }}
+            </span>
+        </div>
+
+        {% if people.topics %}
+        <div style="font-style: italic;">
+            <span>{{ people.topics }}</span>
+        </div>
+        {% endif %}
+
+        {% if people.url %}
+        <br />
+        <div>
+            Website: <a href="{{ people.url }}">{{ people.url }}</a>
+        </div>
+        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    <br />
+
+
+    {% if alumni.size > 1 %}
+    <h2>Alumni</h2>
+    <div class="people-list" style="width:100%; display:flex; flex-wrap:wrap;"> 
+
+    {% for people in alumni %}
+    <div style="display:flex; width:45%; max-width: 45%; margin:1% 1% 1% 1%; border: 1px solid black; padding:1%; border-radius: 5px; background-color: rgb(240, 255, 241); 
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
+        <div class="people-picture" style="margin-right:2%">
+            {% if !people.photo %}
+            <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo }}" />
+            {% else %}
+            <img width="92px" height="92px" src="images/people/default.svg" />
+            {% endif %}
+        </div>
+        <div class="people-infos">
+        <div>
+            <span style="font-weight: 600;">
+            {{ people.name }}
+            </span> -
+            <span>
+            {{ people.title }}
+            </span>
+        </div>
+
+        {% if people.topics %}
+        <div style="font-style: italic;">
+            <span>{{ people.topics }}</span>
+        </div>
+        {% endif %}
+
+        {% if people.url %}
+        <br />
+        <div>
+            Website: <a href="{{ people.url }}">{{ people.url }}</a>
+        </div>
+        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+</div>

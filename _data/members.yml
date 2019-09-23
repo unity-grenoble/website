@@ -1,0 +1,72 @@
+# Current Labs members
+- name: Eric Heitz
+  title: Lead Research Scientist
+  url: https://eheitzresearch.wordpress.com/
+  photo: images/people/eric_heitz.jpg
+  center: labs
+
+- name: Jonathan Dupuy
+  title: Research Scientist
+  center: labs
+  photo: images/people/jonathan_dupuy.jpg
+  url: http://onrendering.com/
+
+- name: Laurent Belcour
+  title: Research Scientist
+  url: https://belcour.github.io/blog/
+  topics: "Appearance Modeling - (Quasi)-Monte Carlo"
+  photo: images/people/laurent_belcour.jpg
+  center: labs
+
+- name: Kenneth Vanhoey
+  title: Research Scientist
+  url: "http://www.kvanhoey.eu/"
+  topics: "Machine Learning for CGI and Content Creation"
+  photo: images/people/kenneth_vanhoey.jpg
+  center: labs
+
+- name: Thomas Deliot
+  title: Research Engineer
+  url: "http://thomasdeliot.wixsite.com/blog"
+  center: labs
+  photo: images/people/thomas_deliot.jpg
+  
+- name: Adele Saint-Denis
+  title: PhD Student
+  topics: "Real-Time Style Transfer"
+  center: labs
+  photo: images/people/adele_saintdenis.jpg
+
+# Former Labs members
+- name: Pierre Moreau
+  title: Intern
+  center: alumni
+  topics: "Control Variates"
+
+- name: Jad Khouri
+  title: Intern
+  center: alumni
+  topics: "GPU Tessellation"
+
+- name: Philippe Weier
+  title: Intern
+  center: alumni
+  topics: "Appearance Modeling"
+
+
+# R&D Engineers
+- name: Christophe Riccio
+  title: "R&amp;D Engineer"
+  center: "R&D"
+  photo: images/people/christophe_riccio.png
+  url: "http://github.com/g-truc"
+  
+- name: Arthur Dufay
+  title: "R&amp;D Engineer"
+  center: "R&D"
+  photo: images/people/arthur_dufay.jpg
+  url: "http://www.linkedin.com/in/arthur-dufay-a9689388/"
+  
+  
+  
+  

@@ -1,0 +1,103 @@
+
+
+.publication-title
+{
+    font-size: 1.2em;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+}
+
+.publication-author-affiliation
+{
+    display: none;
+    font-style:italic;
+    vertical-align: super;
+    font-size: 0.7em;
+}
+
+.publication-author-name:hover + .publication-author-affiliation
+{
+    display: inline;
+}
+
+.publication-journal
+{
+    font-style:italic;
+}
+
+/* Style for the publications.html webpage */
+
+.publication-title a
+{
+    color: black;
+    text-decoration: none;
+}
+
+.publication-title a:hover
+{
+    color: black;
+    text-decoration: underline;
+}
+
+.publication-image
+{
+
+}
+
+a.publication-material
+{
+    color: black;
+    text-decoration: none;
+}
+
+a.publication-material:hover
+{
+    color: gray;
+    text-decoration: none;
+}
+
+a.outside_url:after 
+{
+    font-family: 'Font Awesome Local';
+    content: "\f14d";
+    font-size: 59%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    top: -0.63em;
+}
+
+a.publication-material:before
+{
+    font-family: 'Font Awesome Local';
+    /* content: "\f08e"; */
+    /* font-size: 59%; */
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    padding-right: 0.1em;
+    /* top: -0.63em; */
+    
+}
+
+a.url:before {
+    content: "\f0c3";
+}
+
+a.video:before {
+    content: "\f1c8";
+}
+
+a.code:before {
+    content: "\f1c9";
+}
+
+a.slides:before {
+    content: "\f26c";
+/*    content: "\f1c4";*/
+}
+
+a.document:before {
+    content: "\f1c1";
+}
