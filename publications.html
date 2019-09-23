@@ -11,7 +11,7 @@ title: Publications
     <!-- Generate the post URL -->
     <!-- It is either a local URL or and outside URL if you want -->
     <!-- to reference your own blog / website. -->
-    {% assign publication_url = publication_url | prepend: site.baseurl %}
+    {% assign publication_url = post.url | prepend: site.baseurl %}
     {% assign url_type = "internal_url" %}
     {% if post.url_outside %}
         {% assign publication_url = post.url_outside %}
