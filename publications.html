@@ -4,14 +4,14 @@ title: Publications
 ---
 
 <div class="home">
-    <div class="post-list"> 
+    <div class="post-list">
 
     {% for post in site.posts %}
 
     <!-- Generate the post URL -->
     <!-- It is either a local URL or and outside URL if you want -->
     <!-- to reference your own blog / website. -->
-    {% assign publication_url = post.url %}
+    {% assign publication_url = publication_url | prepend: site.baseurl %}
     {% assign url_type = "internal_url" %}
     {% if post.url_outside %}
         {% assign publication_url = post.url_outside %}
@@ -19,7 +19,7 @@ title: Publications
     {% endif %}
 
     {% if post.categories contains "publication" %}
-      <div style="display:flex; align-items:center; margin-bottom:20px; border: 1px solid #AAA; padding: 10px; border-radius: 5px; background-color: #EEE; 
+      <div style="display:flex; align-items:center; margin-bottom:20px; border: 1px solid #AAA; padding: 10px; border-radius: 5px; background-color: #EEE;
       box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
         <div class="publication-image" style="margin-right:15px;">
             <a href="{{ publication_url | prepend: site.baseurl }}">
@@ -33,7 +33,7 @@ title: Publications
         <div class="publication-bibliography">
             <!-- Publication title -->
             <div class="publication-title">
-                <a class="{{ url_type }}" href="{{ publication_url | prepend: site.baseurl }}">
+                <a class="{{ url_type }}" href="{{ publication_url }}">
                 <strong>{{ post.title }}</strong>
                 </a>
             </div>
@@ -42,7 +42,7 @@ title: Publications
             <div class="publication-authors">
                 {% assign authors_size = {{post.authors.size | minus: 1 }} %}
                 {% for index in (0..authors_size) %}
-                
+
                 {% assign author = post.authors[index] %}
 
                 {% assign author_infos = site.data.members | where: "name", author.name %}
@@ -63,7 +63,7 @@ title: Publications
             <div>
             <span style="font-style:italic;">
                 {% if post.tags contains 'published' %}
-                    Published in 
+                    Published in
                 {% elsif contains 'to_appear' %}
                     To appear in
                 {% elsif contains 'techreport' %}
