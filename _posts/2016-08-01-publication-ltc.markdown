@@ -12,7 +12,7 @@ authors: [
 conference: "ACM SIGGRAPH 2016"
 categories: publication
 tags: published
-thumbnail: "/images/thumbnails/publication_linearly_transformed_cosines.png"
+thumbnail: "/images/thumbnails/publication_linearly_transformed_cosines2.png"
 banner: "/images/banners/banner_ltc.png"
 url_outside: https://eheitzresearch.wordpress.com/415-2
 ---
