@@ -9,7 +9,7 @@ authors: [
 conference: "Computer Graphics Forum 2019 (proceedings of EGSR)"
 categories: publication
 tags: published
-thumbnail: "images/thumbnails/publication_distributing_error_blue_noise_animation.png"
+thumbnail: "/images/thumbnails/publication_distributing_error_blue_noise_animation.png"
 ---
 
 <p>

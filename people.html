@@ -18,9 +18,9 @@ title: People
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
         <div class="people-picture" style="margin-right:2%">
             {% if !people.photo %}
-            <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo }}" />
+            <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo | prepend: site.baseurl }}" />
             {% else %}
-            <img width="92px" height="92px" src="images/people/default.svg" />
+            <img width="92px" height="92px" src="{{ 'images/people/default.svg' | prepend: site.baseurl }}" />
             {% endif %}
         </div>
         <div class="people-infos">
@@ -60,9 +60,9 @@ title: People
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
         <div class="people-picture" style="margin-right:2%">
             {% if !people.photo %}
-            <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo }}" />
+            <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo | prepend: site.baseurl }}" />
             {% else %}
-            <img width="92px" height="92px" src="images/people/default.svg" />
+            <img width="92px" height="92px" src="{{ 'images/people/default.svg' | prepend: site.baseurl }}" />
             {% endif %}
         </div>
         <div class="people-infos">
@@ -103,9 +103,9 @@ title: People
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
         <div class="people-picture" style="margin-right:2%">
             {% if !people.photo %}
-            <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo }}" />
+            <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo | prepend: site.baseurl }}" />
             {% else %}
-            <img width="92px" height="92px" src="images/people/default.svg" />
+            <img width="92px" height="92px" src="{{ '/images/people/default.svg' | prepend: site.baseurl }}" />
             {% endif %}
         </div>
         <div class="people-infos">

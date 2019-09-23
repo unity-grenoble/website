@@ -24,9 +24,9 @@ title: Publications
         <div class="publication-image" style="margin-right:15px;">
             <a href="{{ publication_url | prepend: site.baseurl }}">
             {% if post.thumbnail %}
-                <img style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" width="90px" height="90px" src="{{ post.thumbnail }}" />
+                <img style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" width="90px" height="90px" src="{{ post.thumbnail | prepend: site.baseurl }}" />
             {% else %}
-                <img style="max-width:none; width:90px; height:90px; overflow: hidden" width="90px" height="90px" src="images/thumbnails/default.png" />
+                <img style="max-width:none; width:90px; height:90px; overflow: hidden" width="90px" height="90px" src="{{ 'images/thumbnails/default.png' | prepend: site.baseurl }}" />
             {% endif %}
             </a>
         </div>

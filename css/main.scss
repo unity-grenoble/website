@@ -10,7 +10,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url("{{ site.url | append: 'fonts/fa-solid-900.woff2' }}") format('woff2');
+    src: url("{{ '/fonts/fa-solid-900.woff2' | prepend: site.baseurl }}") format('woff2');
     // src: url("{{ site.url | append: 'fonts/fa-regular-400.woff2' }}") format('woff2');
 }
 
