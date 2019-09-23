@@ -17,7 +17,7 @@
         <div class="publication-authors">
             {% assign authors_size = {{page.authors.size | minus: 1 }} %}
             {% for index in (0..authors_size) %}
-                
+
                 {% assign author = page.authors[index] %}
 
                 {% assign author_infos = site.data.members | where: "name", author.name %}
@@ -36,12 +36,12 @@
                     {{ author_affiliation }}
                 </span>
                 </span>
-                
+
             {% endfor %}
         </div>
         <div class="publication-journal">
             {% if page.tags contains 'published' %}
-                Published in 
+                Published in
             {% elsif contains 'to_appear' %}
                 To appear in
             {% elsif contains 'techreport' %}
@@ -61,7 +61,7 @@
         {% endif %}
 
         {% if page.banner %}
-        <img src="{{ site.url | append: page.banner }}" width="100%"/>
+        <img src="{{ page.banner | prepend: site.baseurl }}" width="100%"/>
         {% endif %}
 
         {{ content }}
