@@ -1,7 +1,7 @@
 ---
 layout: publication
 date:   2017-08-01
-title:  "Real-Time Line- and Disk-Light Shading with Linearly Transformed Cosines"
+title:  "Microfacet-based Normal Mapping for Robust Monte Carlo Path Tracing"
 authors: [			
             { name: "Vincent Schüssler", affiliation: "KIT", url: ""  },    
 			{ name: "Eric Heitz"},			
