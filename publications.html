@@ -19,8 +19,15 @@ title: Publications
     {% endif %}
 
     {% if post.categories contains "publication" %}
-      <div style="display:flex; align-items:center; margin-bottom:20px; border: 1px solid #AAA; padding: 10px; border-radius: 5px; background-color: #EEE;
-      box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
+      <div style="position:relative; display:flex; margin-bottom:20px; border: 1px solid #AAA; padding: 10px; border-radius: 5px; background-color: #EEE;
+      box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03); overflow: hidden;">
+
+        {% if  post.award %}
+        <center style="transform:rotate(45deg); font-family:Roboto; font-weight:600; position:absolute; top:40px; left:85%; width:200px; background-color:red; color:white; padding:5px;">
+            {{ post.award }}
+        </center>
+        {% endif %}
+
         <div class="publication-image" style="margin-right:15px;">
             <a href="{{ publication_url | prepend: site.baseurl }}">
             {% if post.thumbnail %}

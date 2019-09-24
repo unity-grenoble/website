@@ -12,5 +12,6 @@ categories: publication
 url_outside: http://eheitzresearch.wordpress.com/705-2/
 tags: published
 thumbnail: "/images/thumbnails/publication_combiningshadingshadows.png"
+award: "Best paper"
 ---
 

@@ -12,5 +12,6 @@ categories: publication
 url_outside: http://eheitzresearch.wordpress.com/722-2/
 tags: published
 thumbnail: "/images/thumbnails/publication_highperformancenoise.png"
+award: "Best paper"
 ---
 

@@ -9,6 +9,7 @@ authors: [
 conference: "Computer Graphics Forum 2019 (proceedings of EGSR)"
 categories: publication
 tags: published
+award: "Best paper"
 thumbnail: "/images/thumbnails/publication_distributing_error_blue_noise_animation.png"
 ---
 
