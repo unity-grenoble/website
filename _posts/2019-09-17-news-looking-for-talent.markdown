@@ -1,12 +1,12 @@
 ---
 layout: news
-title:  "Unity Grenoble is looking for talents"
+title:  "Unity Grenoble recrute"
 date:   2019-09-10 10:24:05 +0200
 categories: news
 permalink: news/recrutement.html
 ---
 
-Unity Grenoble recrute
+
 
 Unity Technologies souhaite agrandir son équipe Unity Labs Grenoble, localisé à Montbonnot Saint-Martin, près de Grenoble. Il y a plusieurs ouvertures tant en postes d’ingénieurs que de chercheurs. Nous recrutons des
 * stagiaires de master (ou séjours durant la thèse de doctorat),
