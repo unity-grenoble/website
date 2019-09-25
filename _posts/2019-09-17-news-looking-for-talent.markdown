@@ -6,20 +6,21 @@ categories: news
 permalink: news/recrutement.html
 ---
 
-Unity Technologies wishes to grow its Unity Labs Grenoble team, located in Montbonnot Saint-Martin, France.
-There are multiple openings both in engineering and research and with various types of positions:
-* masters or PhD internships (5 months minimal),
-* engineers (junior or senior),
-* candidates for a PhD, and 
-* junior or senior researchers.
+Unity Grenoble recrute
 
-We are looking for talented people willing to undertake research (with possibility and even incentive to publish in top-tier academic journals and venues) or engineering in the field of Computer Graphics.
+Unity Technologies souhaite agrandir son équipe Unity Labs Grenoble, localisé à Montbonnot Saint-Martin, près de Grenoble. Il y a plusieurs ouvertures tant en postes d’ingénieurs que de chercheurs. Nous recrutons des
+* stagiaires de master (ou séjours durant la thèse de doctorat),
+* ingénieur.e.s (sortis d’école ou expérimentés),
+* candidat.e.s à une thèse de doctorat CIFRE, et
+* Chercheurs/chercheuses, jeunes ou expérimenté.e.s.
 
-Our current team is concentrated around photorealistic rendering (eg, material modelling, sampling, procedural texturing) and deep-learning for rendering (eg, denoising, style transfer, texture synthesis): please see our publication list for more details. We wish to welcome young researchers and engineers in those fields and/or more experienced researchers in related ones: in particular graphical content creation (3D reconstruction and animation, textures, materials) through machine learning.  Experienced researchers will be encouraged to pursue their own research. For less experienced candidates (pre-PhD) and engineers, we can offer several subjects related to our fields of expertise.
+Nous recherchons des personnes motivées et talentueuses intéressées par la recherche ou l'ingénierie en informatique graphique. Nous offrons la possibilité (et encourageons même) de publier dans des revues et conférences académiques de premier plan.
 
+Notre équipe actuelle s’axe autour du rendu photoréaliste (eg, modélisation de matériaux, échantillonnage pour l’illumination globale, texturage procédural) et l’apprentissage pour le rendu
+(eg, débruitage, transfert de style, synthèse de texture) : nous vous invitons à regarder notre liste de publications pour davantage de détails. Nous souhaitons accueillir des jeunes chercheurs et ingénieurs dans ces domaines-là, et/ou des chercheurs plus expérimentés apportant leur propre expertise dans des domaines proches : en particulier dans la création de contenu par apprentissage (eg, reconstruction, traitement et animation 3D, textures, matériaux). Pour les candidats avec peu ou pas d’expérience de recherche, nous pouvons proposer plusieurs sujets liés à nos domaines d’expertise.
 
-##### Who can apply ?
-Highly-motivated junior or senior engineers and (possibly aspiring) researchers with experience (or at least a master-level diploma, or about to complete one) in the fields of Computer Graphics and/or Deep Learning.
+##### Qui peut candidater ?
+Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en informatique graphique et/ou apprentissage profond (ou ayant/finalisant au moins un master dans le domaine)
 
-##### How to apply ?
-Please send us an e-mail with a CV, portfolio and/or publication record to get in touch and we’ll get back to you quickly.
+##### Comment candidater ?
+Veuillez nous adresser un e-mail avec CV, portfolio de projets et/ou liste de publication en guise de prise de contact. Nous reviendrons vers vous par la suite.
