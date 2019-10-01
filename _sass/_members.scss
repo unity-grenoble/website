@@ -1,0 +1,33 @@
+a.member_website
+{
+    color: black;
+    text-decoration: none;
+}
+
+a.member_website:before 
+{
+    font-family: 'Font Awesome Local';
+    content: "\f5fc";
+    // font-size: 59%;
+    line-height: 0;
+    // position: relative;
+    // vertical-align: baseline;
+    // top: -0.63em;
+}
+
+a.member_email
+{
+    color: black;
+    text-decoration: none;
+}
+
+a.member_email:before 
+{
+    font-family: 'Font Awesome Local';
+    content: "\f658";
+    // font-size: 59%;
+    line-height: 0;
+    // position: relative;
+    // vertical-align: baseline;
+    // top: -0.63em;
+}

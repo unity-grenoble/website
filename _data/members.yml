@@ -4,12 +4,14 @@
   url: https://eheitzresearch.wordpress.com/
   photo: /images/people/eric_heitz.jpg
   center: labs
+  email: "eric@unity3d.com"
 
 - name: Jonathan Dupuy
   title: Research Scientist
   center: labs
   photo: /images/people/jonathan_dupuy.jpg
   url: http://onrendering.com/
+  email: "jonathandu@unity3d.com"
 
 - name: Laurent Belcour
   title: Research Scientist
@@ -17,6 +19,7 @@
   topics: "Appearance Modeling - (Quasi)-Monte Carlo"
   photo: /images/people/laurent_belcour.jpg
   center: labs
+  email: "laurent@unity3d.com"
 
 - name: Kenneth Vanhoey
   title: Research Scientist
@@ -24,6 +27,7 @@
   topics: "Machine Learning for CGI and Content Creation"
   photo: /images/people/kenneth_vanhoey.jpg
   center: labs
+  email: "kennethv@unity3d.com"
 
 - name: Thomas Deliot
   title: Research Engineer
@@ -39,19 +43,22 @@
 
 # Former Labs members
 - name: Pierre Moreau
-  title: Intern
+  title: "Research Intern"
   center: alumni
   topics: "Control Variates"
+  url: "https://pmoreau.org/"
 
 - name: Jad Khouri
-  title: Intern
+  title: "Research Intern"
   center: alumni
   topics: "GPU Tessellation"
+  url: "https://jadkhoury.github.io/"
 
 - name: Philippe Weier
-  title: Intern
+  title: "Research Intern"
   center: alumni
   topics: "Appearance Modeling"
+  url: "https://weiphil.github.io/portfolio/"
 
 
 # R&D Engineers

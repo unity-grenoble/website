@@ -23,28 +23,39 @@ title: People
             <img width="92px" height="92px" src="{{ 'images/people/default.svg' | prepend: site.baseurl }}" />
             {% endif %}
         </div>
-        <div class="people-infos">
-        <div>
-            <span style="font-weight: 600;">
-            {{ people.name }}
-            </span> -
-            <span>
-            {{ people.title }}
-            </span>
-        </div>
+        <div style="display:flex; flex-direction:column; justify-content:space-between;" class="people-infos">
+            <div>
+                <div>
+                    <span style="font-weight: 600;">
+                    {{ people.name }}
+                    </span> -
+                    <span>
+                    {{ people.title }}
+                    </span>
+                    {% if people.email %}
+                    </a>
+                    {% endif %}
+                </div>
 
-        {% if people.topics %}
-        <div style="font-style: italic;">
-            <span>{{ people.topics }}</span>
-        </div>
-        {% endif %}
+                {% if people.topics %}
+                <div style="font-style: italic;">
+                    <span>{{ people.topics }}</span>
+                </div>
+                {% endif %}
+            </div>
 
-        {% if people.url %}
-        <br />
-        <div>
-            Website: <a href="{{ people.url }}">{{ people.url }}</a>
-        </div>
-        {% endif %}
+            <br />
+            <div>
+                {% if people.url %}
+                <a class="member_website" href="{{ people.url }}">&nbsp;website</a>
+                {% endif %}
+                {% if people.email && people.url %}
+                &nbsp;-&nbsp;
+                {% endif %}
+                {% if people.email %}
+                <a class="member_email" href="mailto:{{ people.email }}">&nbsp;email </a>
+                {% endif %}
+            </div>
         </div>
     </div>
     {% endfor %}
@@ -65,28 +76,39 @@ title: People
             <img width="92px" height="92px" src="{{ 'images/people/default.svg' | prepend: site.baseurl }}" />
             {% endif %}
         </div>
-        <div class="people-infos">
-        <div>
-            <span style="font-weight: 600;">
-            {{ people.name }}
-            </span> -
-            <span>
-            {{ people.title }}
-            </span>
-        </div>
+        <div style="display:flex; flex-direction:column; justify-content:space-between;" class="people-infos">
+            <div>
+                <div>
+                    <span style="font-weight: 600;">
+                    {{ people.name }}
+                    </span> -
+                    <span>
+                    {{ people.title }}
+                    </span>
+                    {% if people.email %}
+                    </a>
+                    {% endif %}
+                </div>
 
-        {% if people.topics %}
-        <div style="font-style: italic;">
-            <span>{{ people.topics }}</span>
-        </div>
-        {% endif %}
+                {% if people.topics %}
+                <div style="font-style: italic;">
+                    <span>{{ people.topics }}</span>
+                </div>
+                {% endif %}
+            </div>
 
-        {% if people.url %}
-        <br />
-        <div>
-            Website: <a href="{{ people.url }}">{{ people.url }}</a>
-        </div>
-        {% endif %}
+            <br />
+            <div>
+                {% if people.url %}
+                <a class="member_website" href="{{ people.url }}">&nbsp;website</a>
+                {% endif %}
+                {% if people.email && people.url %}
+                &nbsp;-&nbsp;
+                {% endif %}
+                {% if people.email %}
+                <a class="member_email" href="mailto:{{ people.email }}">&nbsp;email </a>
+                {% endif %}
+            </div>
         </div>
     </div>
     {% endfor %}
@@ -108,28 +130,39 @@ title: People
             <img width="92px" height="92px" src="{{ '/images/people/default.svg' | prepend: site.baseurl }}" />
             {% endif %}
         </div>
-        <div class="people-infos">
-        <div>
-            <span style="font-weight: 600;">
-            {{ people.name }}
-            </span> -
-            <span>
-            {{ people.title }}
-            </span>
-        </div>
+        <div style="display:flex; flex-direction:column; justify-content:space-between;" class="people-infos">
+            <div>
+                <div>
+                    <span style="font-weight: 600;">
+                    {{ people.name }}
+                    </span> -
+                    <span>
+                    {{ people.title }}
+                    </span>
+                    {% if people.email %}
+                    </a>
+                    {% endif %}
+                </div>
 
-        {% if people.topics %}
-        <div style="font-style: italic;">
-            <span>{{ people.topics }}</span>
-        </div>
-        {% endif %}
+                {% if people.topics %}
+                <div style="font-style: italic;">
+                    <span>{{ people.topics }}</span>
+                </div>
+                {% endif %}
+            </div>
 
-        {% if people.url %}
-        <br />
-        <div>
-            Website: <a href="{{ people.url }}">{{ people.url }}</a>
-        </div>
-        {% endif %}
+            <br />
+            <div>
+                {% if people.url %}
+                <a class="member_website" href="{{ people.url }}">&nbsp;website</a>
+                {% endif %}
+                {% if people.email && people.url %}
+                &nbsp;-&nbsp;
+                {% endif %}
+                {% if people.email %}
+                <a class="member_email" href="mailto:{{ people.email }}">&nbsp;email </a>
+                {% endif %}
+            </div>
         </div>
     </div>
     {% endfor %}
