@@ -23,4 +23,4 @@ Notre équipe actuelle s’axe autour du rendu photoréaliste (eg, modélisation
 Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en informatique graphique et/ou apprentissage profond (ou ayant/finalisant au moins un master dans le domaine)
 
 ##### Comment candidater ?
-Veuillez nous adresser un e-mail avec CV, portfolio de projets et/ou liste de publication en guise de prise de contact. Nous reviendrons vers vous par la suite.
+En guise de prise de contact, veuillez adresser un e-mail à un ou plusieurs de nos "research scientists" avec CV, portfolio de projets et/ou liste de publication. Nous reviendrons vers vous par la suite.
