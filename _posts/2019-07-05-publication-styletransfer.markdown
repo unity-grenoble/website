@@ -7,7 +7,7 @@ authors: [
             { name: "Kenneth Vanhoey" },
 			{ name: "Thomas Deliot" }
          ]
-conference: High Performance Graphics 2019
+conference: "High Performance Graphics 2019 - Posters"
 categories: publication
 tags: published
 thumbnail: "/images/thumbnails/poster_HPG2019.png"
