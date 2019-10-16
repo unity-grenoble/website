@@ -24,3 +24,4 @@ Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en 
 
 ##### Comment candidater ?
 En guise de prise de contact, veuillez adresser un e-mail à un ou plusieurs de nos "research scientists" avec CV, portfolio de projets et/ou liste de publication. Nous reviendrons vers vous par la suite.
+*Attention* : toute candidature qui ne sera pas accompagnée d'un portfolio de projets/publications/travaux réalisés sera classée sans suite.
