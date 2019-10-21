@@ -27,7 +27,7 @@ Merci d'adresser un e-mail avec CV, portfolio de projets et/ou liste de publicat
 * Pour un stage : contacter Jonathan Dupuy (jonathandu@unity3d.com)
 * Pour un poste d'ingénieur : contacter Kenneth Vanhoey (kennethv@unity3d.com)
 * Pour un post-doc : contacter Kenneth Vanhoey (kennethv@unity3d.com)
-* Pour une autre demande : contacter le "research scientist" 
+* Pour une autre demande : contacter le "research scientist" qui vous paraît pertinent 
   
 **Attention** : toute candidature qui ne sera pas accompagnée d'un portfolio de projets/publications/travaux réalisés sera classée sans suite.
 
