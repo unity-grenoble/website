@@ -42,6 +42,7 @@
       </a>
 
       <div class="trigger" style="margin-right:25px;">
+        <a class="page-link" style="font-family: Roboto, sans-serif; font-weight: 600; color:gray;" href="{{ '/index.html' | prepend: site.baseurl }}">Home</a>
         {% for my_page in site.pages %}
           {% if my_page.title %}
           <a class="page-link" style="font-family: Roboto, sans-serif; font-weight: 600; color:gray;" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>

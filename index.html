@@ -2,17 +2,63 @@
 layout: default
 ---
 
-<img src="{{ '/images/banners/banner_ltc.png'  | prepend: site.baseurl }}" width="100%"/>
+<!-- <img src="{{ '/images/banners/banner_ltc.png'  | prepend: site.baseurl }}" width="100%"/> -->
 
 <!-- <div class="home"> -->
-  <div class="wrapper">
-    <br />
-    <!-- <h1>Description</h1> -->
-    <p><strong>Who.</strong>
-    Unity Grenoble is one of Unity's French offices and is located in the French Alps. It is <a href="people.html">composed</a> of R&amp;D Engineers and Research Scientists.
-    </p>
+<div class="wrapper">
+   <br />
+   <div style="display:flex; justify-content:space-between; align-items: top;">
+      <div style="width:59%; text-align:justify;">
+      <p><strong>Who.</strong>
+      Unity Grenoble is one of Unity's French offices and is located in the French Alps. It is <a href="people.html">composed</a> of R&amp;D Engineers and Research Scientists.
+      </p>
 
-    <p><strong>What.</strong>
-    We are contributing to shape the future of the Unity Engine by investigating and developping new and original technologies for rendering and content creation. Please check out our <a href="publications.html">publication list</a> for more details.
-    </p>
+      <p>
+      Our mission at Unity Grenoble is to push Computer Graphics to be as fast as in games, as beautiful as in movies while being easy to author. We research graphics algorithms that bring technology towards the convergence of real-time graphics (games), VFX graphics (movies), and content authoring (tools) in a unified pipeline.
+      </p>
+
+      <p><strong>Authoring.</strong>
+      Creating believable assets is tough and time consuming. With the help of Machine Learning, we augment assets with never repeating textures, extract physically-based materials from live capture, and fill missing information from authored data. We want to bring the assets used in the film industry to the gaming world for both authoring and in-game rendering in a unified manner.
+      </p>
+
+      <p><strong>Rendering.</strong> One key to photorealism is in the multiple interactions of materials and lighting. We design new material and lighting models and figure out how to make them work together as well as integration schemes to render images faster. We work on efficient representations of material attributes that are stored in textures and on how to make them look consistent and anti-aliased at any distance with physically based levels of detail.
+      </p>
+
+      <p><strong>Post-Processing.</strong> No one should bother with rendering internals to achieve his creative vision. We develop new ways to author or augment rendered images. Our goal is to enable non-artist to quickly change the style of their games.
+      </p>
+
+      <p>
+      Please check out our <a href="publications.html">publication list</a> for more details.
+      </p>
+      </div>
+      <div style="width:39%;">
+         <center style="width:100%;">
+            <img width="100%" style="border:1px solid black;" src="images/banners/banner_ltc.png">
+            <span style="font-size:0.9em; font-style:italic;">Real-time area lights [<a href="">Heitz et al. 2016</a>]</span>
+         </center>
+         <br />
+
+
+         <center style="width:100%;">
+            <img width="100%" style="border:1px solid black;" src="images/projects/brdf_layered/belcour2018b.png">
+            <span style="font-size:0.9em; font-style:italic;">Layered materials [<a href="">Belcour 2018</a>]</span>
+         </center>
+         <br />
+
+
+         <center style="width:100%;">
+            <img width="100%" style="border:1px solid black;" src="images/projects/adaptive_terrain/isubd.png">
+            <span style="font-size:0.9em; font-style:italic;">Real-time terrain tessellation [<a href="">Khoury et al. 2018</a>]</span>
+         </center>
+         <br />
+
+
+         <center style="width:100%;">
+            <img width="49%" style="border:1px solid black;" src="images/projects/style_transfert/input.png">
+            <img width="49%" style="border:1px solid black;" src="images/projects/style_transfert/style.png">
+            <span style="font-size:0.9em; font-style:italic;">Real-time style transfert [<a href="">Saint-Denis et al. 2019</a>]</span>
+         </center>
+         <br />
+      </div>
+   </div>
 </div>
