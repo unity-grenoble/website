@@ -3,8 +3,8 @@ layout: publication
 date:   2019-02-01
 title:  "Adaptive GPU Tessellation with Compute Shaders"
 authors: [
-            { name: "Jonathan Dupuy" },
             { name: "Jad Khoury", affilitation: "Unity Technologies" },
+            { name: "Jonathan Dupuy" },
             { name: "Christophe Riccio", affilitation: "Unity Technologies" },
          ]
 conference: GPU Zen 2
