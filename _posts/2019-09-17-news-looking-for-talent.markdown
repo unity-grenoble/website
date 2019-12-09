@@ -23,10 +23,11 @@ Notre équipe actuelle s’axe autour du rendu photoréaliste (eg, modélisation
 Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en informatique graphique et/ou apprentissage profond (ou ayant/finalisant au moins un master dans le domaine)
 
 ##### Comment candidater ?
-Merci d'adresser un e-mail avec CV, portfolio de projets et/ou liste de publication à la personne adéquate: 
-* Pour un stage : contacter Jonathan Dupuy (jonathandu@unity3d.com)
-* Pour un poste d'ingénieur ou chercheur : contacter Kenneth Vanhoey (kennethv@unity3d.com)
-* Pour une autre demande : contacter le "research scientist" qui vous paraît pertinent 
+~~Merci d'adresser un e-mail avec CV, portfolio de projets et/ou liste de publication à la personne adéquate:~~ 
+* ~~Pour un stage : contacter Jonathan Dupuy (jonathandu@unity3d.com)~~
+* ~~Pour un poste d'ingénieur ou chercheur : contacter Kenneth Vanhoey (kennethv@unity3d.com)~~
+* ~~Pour une autre demande : contacter le "research scientist" qui vous paraît pertinent~~
   
-**Attention** : toute candidature qui ne sera pas accompagnée d'un portfolio de projets/publications/travaux réalisés sera classée sans suite.
+~~**Attention** : toute candidature qui ne sera pas accompagnée d'un portfolio de projets/publications/travaux réalisés sera classée sans suite.~~
+**Attention**: Les candidatures 2020 sont maintenant fermées.
 
