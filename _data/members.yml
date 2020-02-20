@@ -40,6 +40,12 @@
   topics: "Real-Time Style Transfer"
   center: labs
   photo: /images/people/adele_saintdenis.jpg
+  
+- name: Thomas Chambon
+  title: Research Engineer
+  url: "https://www.linkedin.com/in/thomas-chambon-0a648664/"
+  center: labs
+  photo: /images/people/thomas_chambon.jpg
 
 # Former Labs members
 - name: Pierre Moreau
