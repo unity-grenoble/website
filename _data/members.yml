@@ -83,13 +83,13 @@
   center: alumni
   photo: /images/people/adele_saintdenis.jpg
  
-
-# R&D Engineers
 - name: Christophe Riccio
   title: "R&amp;D Engineer"
-  center: "R&D"
+  center: alumni
   photo: /images/people/christophe_riccio.png
   url: "http://github.com/g-truc"
+
+# R&D Engineers
   
 - name: Arthur Dufay
   title: "R&amp;D Engineer"
