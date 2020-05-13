@@ -46,12 +46,14 @@
   center: labs
   topics: "Blue-Noise Sampling"
   url: "https://sdurand7.github.io/"
+  photo: /images/people/sylvain_durand.jpg
 
 - name: Corentin Salaun
   title: "Research Intern"
   center: labs
   topics: "Blue-Noise Sampling"
   url: "https://iribis.github.io/"
+  photo: /images/people/corentin_salaun.jpg
 
 # Former Labs members
 - name: Pierre Moreau
@@ -59,18 +61,21 @@
   center: alumni
   topics: "Control Variates"
   url: "https://pmoreau.org/"
+  photo: /images/people/pierre_moreau.jpg
 
 - name: Jad Khouri
   title: "Research Intern"
   center: alumni
   topics: "GPU Tessellation"
   url: "https://jadkhoury.github.io/"
+  photo: /images/people/jad_khoury.jpg
 
 - name: Philippe Weier
   title: "Research Intern"
   center: alumni
   topics: "Appearance Modeling"
   url: "https://weiphil.github.io/portfolio/"
+  photo: /images/people/philippe_weier.jpg
 
 - name: Adele Saint-Denis
   title: "Research Intern"
