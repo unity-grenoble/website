@@ -35,17 +35,23 @@
   center: labs
   photo: /images/people/thomas_deliot.jpg
   
-- name: Adele Saint-Denis
-  title: PhD Student
-  topics: "Real-Time Style Transfer"
-  center: labs
-  photo: /images/people/adele_saintdenis.jpg
-  
 - name: Thomas Chambon
   title: Research Engineer
   url: "https://www.linkedin.com/in/thomas-chambon-0a648664/"
   center: labs
   photo: /images/people/thomas_chambon.jpg
+
+- name: Sylvain Durand
+  title: "Research Intern"
+  center: labs
+  topics: "Blue-Noise Sampling"
+  url: "https://sdurand7.github.io/"
+
+- name: Corentin Salaun
+  title: "Research Intern"
+  center: labs
+  topics: "Blue-Noise Sampling"
+  url: "https://iribis.github.io/"
 
 # Former Labs members
 - name: Pierre Moreau
@@ -66,6 +72,12 @@
   topics: "Appearance Modeling"
   url: "https://weiphil.github.io/portfolio/"
 
+- name: Adele Saint-Denis
+  title: "Research Intern"
+  topics: "Real-Time Style Transfer"
+  center: labs
+  photo: /images/people/adele_saintdenis.jpg
+ 
 
 # R&D Engineers
 - name: Christophe Riccio
