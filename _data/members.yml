@@ -1,20 +1,20 @@
 # Current Labs members
 - name: Eric Heitz
-  title: Lead Research Scientist
+  title: Director of Advanced Graphics Research
   url: https://eheitzresearch.wordpress.com/
   photo: /images/people/eric_heitz.jpg
   center: labs
   email: "eric@unity3d.com"
 
 - name: Jonathan Dupuy
-  title: Research Scientist
+  title: Senior Research Scientist
   center: labs
   photo: /images/people/jonathan_dupuy.jpg
   url: http://onrendering.com/
   email: "jonathandu@unity3d.com"
 
 - name: Laurent Belcour
-  title: Research Scientist
+  title: Senior Research Scientist
   url: https://belcour.github.io/blog/
   topics: "Appearance Modeling - (Quasi)-Monte Carlo"
   photo: /images/people/laurent_belcour.jpg
@@ -22,7 +22,7 @@
   email: "laurent@unity3d.com"
 
 - name: Kenneth Vanhoey
-  title: Research Scientist
+  title: Senior Research Scientist
   url: "http://www.kvanhoey.eu/"
   topics: "Machine Learning for CGI and Content Creation"
   photo: /images/people/kenneth_vanhoey.jpg
@@ -30,13 +30,13 @@
   email: "kennethv@unity3d.com"
 
 - name: Thomas Deliot
-  title: Research Engineer
+  title: Senior Research Engineer
   url: "http://thomasdeliot.wixsite.com/blog"
   center: labs
   photo: /images/people/thomas_deliot.jpg
   
 - name: Thomas Chambon
-  title: Research Engineer
+  title: Senior Research Engineer
   url: "https://www.linkedin.com/in/thomas-chambon-0a648664/"
   center: labs
   photo: /images/people/thomas_chambon.jpg
