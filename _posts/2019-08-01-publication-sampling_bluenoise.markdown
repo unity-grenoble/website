@@ -13,6 +13,15 @@ conference: ACM SIGGRAPH Talks 2019
 categories: publication
 tags: published
 thumbnail: "/images/thumbnails/publication_screen_space_sampler_blue_noise.png"
+materials: [
+    { type: "document", name: "abstract", url: "https://hal.archives-ouvertes.fr/hal-02150657/document" },
+    { type: "document", name: "supp. doc", url: "https://hal.archives-ouvertes.fr/hal-02150657/file/supplemental.zip" },
+    { type: "code", name: "code", url: "https://hal.archives-ouvertes.fr/hal-02150657/file/samplerCPP.zip" },
+    { type: "code", name: "unity demo", url: "https://drive.google.com/file/d/181AXka1ntceVsKIJ_ZD51V3iYeq2szYP/view?usp=sharing" },
+    { type: "url", name: "supp. html", url: "https://belcour.github.io/supp/2019-sampling-bluenoise/index.html"},
+    { type: "video", name: "video", url: "https://hal.archives-ouvertes.fr/hal-02150657/file/samplerBlueNoiseErrors2019_video.mp4"},
+    { type: "slides", name: "slides", url: "https://belcour.github.io/blog/slides/2020-brdf-fresnel-decompo/index.html"},  
+]
 ---
 
 <p>
