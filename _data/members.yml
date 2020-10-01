@@ -47,13 +47,13 @@
   url: "https://sdurand7.github.io/"
   photo: /images/people/sylvain_durand.jpg
 
-- name: Corentin Salaun
-  title: "Research Intern"
+ - name: Frédéric larue
+  title: "Researcher"
   center: labs
-  topics: "Blue-Noise Sampling"
-  url: "https://iribis.github.io/"
-  photo: /images/people/corentin_salaun.jpg
-
+  topics: "Scanning"
+  url: "https://sites.google.com/view/frederic-larue/home"
+  photo: /images/people/frederic_larue.jpg
+  
 # Former Labs members
 - name: Pierre Moreau
   title: "Research Intern"
@@ -88,6 +88,13 @@
   photo: /images/people/christophe_riccio.png
   url: "http://github.com/g-truc"
 
+ - name: Corentin Salaun
+  title: "Research Intern"
+  center: alumni
+  topics: "Blue-Noise Sampling"
+  url: "https://iribis.github.io/"
+  photo: /images/people/corentin_salaun.jpg
+  
 # R&D Engineers
   
 - name: Arthur Dufay
