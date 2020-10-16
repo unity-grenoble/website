@@ -1,0 +1,85 @@
+---
+layout: page
+title: Demos
+---
+
+<div class="home">
+    <div class="post-list">
+
+        {% for post in site.posts %}
+
+        <!-- Generate the post URL -->
+        <!-- It is either a local URL or and outside URL if you want -->
+        <!-- to reference your own blog / website. -->
+        {% assign publication_url = post.url | prepend: site.baseurl %}
+        {% assign url_type = "internal_url" %}
+        {% if post.url_outside %}
+        {% assign publication_url = post.url_outside %}
+        {% assign url_type = "outside_url" %}
+        {% endif %}
+
+        {% if post.categories contains "demo" %}
+        <div style="position:relative; display:flex; margin-bottom:20px; border: 1px solid #AAA; padding: 10px; border-radius: 5px; background-color: #EEE;
+      box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03); overflow: hidden;">
+
+            {% if  post.award %}
+            <center
+                style="transform:rotate(45deg); font-family:Roboto; font-weight:600; position:absolute; top:40px; left:85%; width:200px; background-color:red; color:white; padding:5px;">
+                {{ post.award }}
+            </center>
+            {% endif %}
+
+            <div class="publication-image" style="margin-right:15px;">
+                <a href="{{ publication_url | prepend: site.baseurl }}">
+                    {% if post.thumbnail %}
+                    <img style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;"
+                        width="90px" height="90px" src="{{ post.thumbnail | prepend: site.baseurl }}" />
+                    {% else %}
+                    <img style="max-width:none; width:90px; height:90px; overflow: hidden" width="90px" height="90px"
+                        src="{{ 'images/thumbnails/default.png' | prepend: site.baseurl }}" />
+                    {% endif %}
+                </a>
+            </div>
+            <div class="publication-bibliography">
+                <!-- Publication title -->
+                <div class="publication-title">
+                    <a class="{{ url_type }}" href="{{ publication_url }}">
+                        <strong>{{ post.title }}</strong>
+                    </a>
+                </div>
+
+                <!-- Generate author list -->
+                <div class="publication-authors">
+                    {% assign authors_size = {{post.authors.size | minus: 1 }} %}
+                    {% for index in (0..authors_size) %}
+
+                    {% assign author = post.authors[index] %}
+
+                    {% assign author_infos = site.data.members | where: "name", author.name %}
+                    {% if author_infos.size > 0 %}
+                    {% assign author_affiliation = "Unity Technologies" %}
+                    {% assign author_url = author_infos[0].url %}
+                    {% else %}
+                    {% assign author_affiliation = author.affiliation %}
+                    {% assign author_url = author.url %}
+                    {% endif %}
+                    <span class="publication-authors-name">
+                        <a href="{{ author_url }}">{{ author.name }}</a>{% if index != authors_size %},{% endif %}
+                    </span>
+                    {% endfor %}
+                </div>
+
+                <!-- Content of the post -->
+                <div>
+                    {{ post.content }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+<!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+</div>
