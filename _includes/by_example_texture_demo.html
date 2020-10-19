@@ -9,27 +9,17 @@
 	Disclaimer: this is a CPU implementation that runs in javascript.
 	The GPU implementation presented in the paper is orders of magnitude faster.
 
-
 	<br />
-	<br />
-
-	<div id="inputImage">
-
-		1. Import example texture:
-		<input type="file" id="files" name="files[]" multiple />
-		<output id="list"></output>
-		<br />
-		<br />
-		<canvas id="inputCanvas" width="256" height="256" style="border: dashed 1px #444;">
-			Texte pour les navigateurs ne supportant pas le HTML5 Canvas.
-		</canvas>
-
-	</div>
-
 	<br />
 
 	<div class="column">
 		<div class="col-sm-4">
+			1. Import example texture:
+			<input type="file" id="files" name="files[]" multiple />
+			<output id="list"></output>
+			<br />
+			<br />
+
 			2. Is your example a tileable texture ?
 			<br />
 			<i>Tileable textures allow more varied random tile sampling.</i>
@@ -40,12 +30,21 @@
 
 			3. Select tile size in input image:
 			<br />
-			<i>Larger tile size allows preserving lower frequencies in the example.</i>
+			<i>Larger tile size allows preserving lower frequencies in the example.
+				<br />
+				Blue squares are drawn below to illustrate the random sampling process with the chosen tile size.</i>
 			<br />
 			<div class="slideTileSize">
 				<input type="range" min="0" max="50" value="25" class="slider" id="tileSizeSlider">
 			</div>
 
+			<br />
+
+			<canvas id="inputCanvas" width="256" height="256" style="border: dashed 1px #444;">
+				Texte pour les navigateurs ne supportant pas le HTML5 Canvas.
+			</canvas>
+
+			<br />
 			<br />
 
 			4. Select output image resolution (width, height):
@@ -71,10 +70,21 @@
 
 		<div id="controls">
 			<button onclick="resynthesis()">Compute</button>
+			<button onclick="changeSeedAndResynthesis()">Chande Seed & Compute</button>
 		</div>
 
 		<br />
-		<canvas id="outputCanvas" width="0" height="0" style="border: border: dashed 1px #444;;">
+		<br />
+
+		<div id="outputControls">
+			<button onclick="saveResult()" id="downloadButton">Download Result</button>
+			<button onclick="displayOutput()" id="displayOutputButton">Display Normal</button>
+			<button onclick="displayTiledOutput()" id="displayTiledButton">Display Tiling Preview</button>
+		</div>
+		<i>The output display might be downscaled. Use the button above to download.</i>
+		<br />
+
+		<canvas id="outputCanvas" width="0" height="0" style="border: border: dashed 1px #444;">
 			Texte pour les navigateurs ne supportant pas le HTML5 Canvas.
 		</canvas>
 
@@ -94,7 +104,7 @@
 		/**********************************************/
 
 		// init UI
-		function initRadioButton(imageSize) {
+		function initRadioButton() {
 			// remove
 			var rTileable = document.getElementsByName("tileableExample");
 			for (var i = 0; i < rTileable.length; ++i) {
@@ -113,22 +123,53 @@
 			document.getElementById("radioBtntileableExample").innerHTML = 'Yes:<input type="radio" value="true" name="tileableExample"> <br/> No:<input type="radio" value="false" name="tileableExample"> <br/>';
 			rTileable = document.getElementsByName("tileableExample");
 			rTileable[1].checked = true;
+			rTileable[0].onchange = drawInputCanvas;
+			rTileable[1].onchange = drawInputCanvas;
 
 			// tile size
 			var slider = document.getElementById("tileSizeSlider");
-			slider.oninput = changeTileSize
-			changeTileSize();
+			slider.oninput = drawInputCanvas
+			drawInputCanvas();
 		}
 
 		// manage UI updates
-		function changeTileSize() {
-			ctx.drawImage(A, 0, 0);
-			var size = getTileSize();
+		function drawInputCanvas() {
+			ctx.drawImage(A, 0, 0, c.width, c.height);
+			var tileSize = getTileSize();
+			var resizer = c.width / A.width
+			tileSize *= resizer
+
+			// Display random tile sampling
 			ctx.beginPath();
 			ctx.strokeStyle = "blue";
 			ctx.lineWidth = "2";
-			ctx.rect(8, 8, 8 + size, 8 + size);
-			ctx.stroke();
+			var isTileable = getTileableExample();
+			var sampleCount = Math.min(64, Math.min(imageInput.width, imageInput.height) * resizer / tileSize * 2);
+			var today = new Date();
+			setSeed(today.getHours() * today.getMinutes() * today.getSeconds() + today.getMilliseconds())
+			for (var i = 0; i < sampleCount; i++) {
+				// Display main tile
+				var offset_i = Math.floor((A.width * resizer - (isTileable ? 0 : tileSize)) * randXorshiftFloat());
+				var offset_j = Math.floor((A.height * resizer - (isTileable ? 0 : tileSize)) * randXorshiftFloat());
+				ctx.rect(offset_i, offset_j, tileSize, tileSize);
+				ctx.stroke();
+
+				// Display overflow of tile if tileable sampling enabled
+				if (isTileable) {
+					if (offset_i + tileSize > c.width) {
+						ctx.rect(offset_i - c.width, offset_j, tileSize, tileSize);
+						ctx.stroke();
+					}
+					if (offset_j + tileSize > c.height) {
+						ctx.rect(offset_i, offset_j - c.height, tileSize, tileSize);
+						ctx.stroke();
+					}
+					if (offset_i + tileSize > c.width && offset_j + tileSize > c.height) {
+						ctx.rect(offset_i - c.width, offset_j - c.height, tileSize, tileSize);
+						ctx.stroke();
+					}
+				}
+			}
 		};
 
 		// is example texture tileable
@@ -161,13 +202,17 @@
 		var c = document.getElementById("inputCanvas");
 		var ctx = c.getContext("2d");
 
-		// canvas output
-		var cOutput = document.getElementById("outputCanvas");
-		var ctxOutput = cOutput.getContext("2d");
-
 		// image data
 		var A;
 		var imageInput = { dataR: [], dataG: [], dataB: [], width: 0, height: 0 };
+
+		// output data
+		var cOutput = document.getElementById("outputCanvas");
+		var ctxOutput = cOutput.getContext("2d");
+		var output;
+
+		// display parameters
+		var displayTiled = false;
 
 		// mage file input
 		document.getElementById('files').addEventListener('change', handleFileSelect, false);
@@ -194,7 +239,7 @@
 									// display image
 									c.width = A.width;
 									c.height = A.height;
-									ctx.drawImage(A, 0, 0);
+									ctx.drawImage(A, 0, 0)
 
 									// copy image data
 									var copie_img_chat = ctx.getImageData(0, 0, c.width, c.height);
@@ -216,8 +261,12 @@
 										}
 									}
 
+									// Change canvas size for adjusted display
+									c.width = Math.min(window.innerWidth * 0.45, A.width);
+									c.height = c.width * (A.height / A.width);
+
 									// init buttons
-									initRadioButton(Math.min(A.width, A.height));
+									initRadioButton();
 								};
 						};
 					})(f);
@@ -225,23 +274,83 @@
 			}
 		}
 
-		// display image in canvas
-		function display(input) {
-			cOutput.width = input.width;
-			cOutput.height = input.height;
-			var copie_img_chat = ctxOutput.getImageData(0, 0, input.width, input.height);
-			var data = copie_img_chat.data;
+		// display output in resized canvas
+		function displayOutput() {
+			var imageOutput = new Image();
+			imageOutput.src = outputToDataURL();
 
-			for (var j = 0; j < input.height; ++j)
-				for (var i = 0; i < input.width; ++i) {
-					data[4 * (i + j * input.width) + 0] = input.dataR[j][i];
-					data[4 * (i + j * input.width) + 1] = input.dataG[j][i];
-					data[4 * (i + j * input.width) + 2] = input.dataB[j][i];
-					data[4 * (i + j * input.width) + 3] = 255;
+			// Draw to resized output canvas when finished loading
+			imageOutput.onload = function () {
+				// Change canvas size for adjusted display
+				cOutput.width = Math.min(window.innerWidth * 0.45, imageOutput.width);
+				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
+				// Draw resized output image
+				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width, cOutput.height);
+			};
+
+			displayTiled = false;
+		}
+
+		// display original output
+		function saveResult() {
+			// Create download action
+			var a = document.createElement('a');
+			a.href = outputToDataURL();
+			a.download = 'image.png';
+			document.body.appendChild(a)
+			a.click()
+			document.body.removeChild(a)
+		}
+
+		function outputToDataURL() {
+			var imageData = new ImageData(output.width, output.height);
+			var data = imageData.data;
+			for (var j = 0; j < output.height; ++j)
+				for (var i = 0; i < output.width; ++i) {
+					data[4 * (i + j * output.width) + 0] = output.dataR[j][i];
+					data[4 * (i + j * output.width) + 1] = output.dataG[j][i];
+					data[4 * (i + j * output.width) + 2] = output.dataB[j][i];
+					data[4 * (i + j * output.width) + 3] = 255;
 				}
+			var cOutput2 = document.createElement('canvas');
+			var ctxOutput2 = cOutput2.getContext("2d");
+			cOutput2.width = output.width;
+			cOutput2.height = output.height;
+			ctxOutput2.putImageData(imageData, 0, 0);
+			var dataURL = cOutput2.toDataURL('image/png');
+			return dataURL;
+		}
 
-			// store
-			ctxOutput.putImageData(copie_img_chat, 0, 0);
+		// display tiled output in resized canvas
+		function displayTiledOutput() {
+			// Created tiled 2*2 output image
+			var imageData = new ImageData(output.width * 2, output.height * 2);
+			var data = imageData.data;
+			for (var j = 0; j < output.height * 2; ++j)
+				for (var i = 0; i < output.width * 2; ++i) {
+					data[4 * (i + j * output.width * 2) + 0] = output.dataR[j % output.height][i % output.width];
+					data[4 * (i + j * output.width * 2) + 1] = output.dataG[j % output.height][i % output.width];
+					data[4 * (i + j * output.width * 2) + 2] = output.dataB[j % output.height][i % output.width];
+					data[4 * (i + j * output.width * 2) + 3] = 255;
+				}
+			var cOutput2 = document.createElement('canvas');
+			var ctxOutput2 = cOutput2.getContext("2d");
+			cOutput2.width = output.width * 2;
+			cOutput2.height = output.height * 2;
+			ctxOutput2.putImageData(imageData, 0, 0);
+
+			var imageOutput = new Image();
+			imageOutput.src = cOutput2.toDataURL('image/png');
+			// Draw to resized output canvas when finished loading
+			imageOutput.onload = function () {
+				// Change canvas size for adjusted display
+				cOutput.width = Math.min(window.innerWidth * 0.9, imageOutput.width);
+				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
+				// Draw resized output image
+				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width, cOutput.height);
+			};
+
+			displayTiled = true;
 		}
 
 
@@ -250,32 +359,38 @@
 		/**********************************************/
 		/**********************************************/
 		/**********************************************/
+		var rngState = 0;
 
-		// Returns number between 0 (inclusive) and 1.0 (exclusive),
-		// just like Math.random().
-		var m_w = 123456789;
-		var m_z = 987654321;
-		var mask = 0xffffffff;
-
-		// Takes any integer
-		function setSeed(i) {
-			m_w = i;
-			m_z = 987654321;
+		function wangHash(seed) {
+			seed = (seed ^ 61) ^ (seed >> 16);
+			seed *= 9;
+			seed = seed ^ (seed >> 4);
+			seed *= 0x27d4eb2d;
+			seed = seed ^ (seed >> 15);
+			return seed;
 		}
 
-		// Returns number between 0 (inclusive) and 1.0 (exclusive),
-		// just like Math.random().
-		function random() {
-			m_z = (36969 * (m_z & 65535) + (m_z >> 16)) & mask;
-			m_w = (18000 * (m_w & 65535) + (m_w >> 16)) & mask;
-			var result = ((m_z << 16) + m_w) & mask;
-			result /= 4294967296;
-			return result + 0.5;
+		function randXorshift() {
+			// Xorshift algorithm from George Marsaglia's paper
+			rngState ^= (rngState << 13);
+			rngState ^= (rngState >> 17);
+			rngState ^= (rngState << 5);
+			rngState = customModulo(rngState, 4294967296)
+		}
+
+		function randXorshiftFloat() {
+			randXorshift();
+			var res = rngState * (1.0 / 4294967296.0);
+			return res;
+		}
+
+		function setSeed(i) {
+			rngState = wangHash(i)
 		}
 
 		function changeSeed() {
 			setSeed(getInputSeed())
-			document.getElementById("inputSeed").value = Math.floor(random() * 4294967296)
+			document.getElementById("inputSeed").value = Math.floor(randXorshiftFloat() * 4294967296)
 		}
 
 		function getInputSeed() {
@@ -290,7 +405,12 @@
 			return r
 		}
 
-		// algorithm main function
+		function changeSeedAndResynthesis() {
+			changeSeed()
+			resynthesis()
+		}
+
+		// MAIN GENERATION FUNCTION
 		function resynthesis() {
 			// Set random seed
 			setSeed(getInputSeed())
@@ -320,7 +440,7 @@
 			var tileHeight = tileRadiusHeight * 2;
 
 			// allocate output image
-			var output = { dataR: [], dataG: [], dataB: [], width: targetWidth, height: targetHeight };
+			output = { dataR: [], dataG: [], dataB: [], width: targetWidth, height: targetHeight };
 			for (var j = 0; j < output.height; ++j) {
 				output.dataR[j] = [];
 				output.dataG[j] = [];
@@ -358,8 +478,8 @@
 					}
 
 					// random offset of the tile
-					var offset_i = Math.floor((imageInput.width - (isTileable ? 0 : (tileWidth + tileCenterWidth))) * random());
-					var offset_j = Math.floor((imageInput.height - (isTileable ? 0 : (tileHeight + tileCenterHeight))) * random());
+					var offset_i = Math.floor((imageInput.width - (isTileable ? 0 : (tileWidth + tileCenterWidth))) * randXorshiftFloat());
+					var offset_j = Math.floor((imageInput.height - (isTileable ? 0 : (tileHeight + tileCenterHeight))) * randXorshiftFloat());
 
 					// for each pixel of the tile
 					for (var j = 0; j < tileHeight + tileCenterHeight; ++j) {
@@ -413,7 +533,10 @@
 			output = unmakeHistoGaussianEigen(output, imageInput, eigenVectors);
 
 			// display output in canvas
-			display(output);
+			if (displayTiled == false)
+				displayOutput();
+			else
+				displayTiledOutput();
 		}
 
 		// input: image with arbitrary histogram
