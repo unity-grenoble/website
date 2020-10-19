@@ -99,11 +99,12 @@
 		// manage UI updates
 		function changeBorderSize() {
 			ctx.drawImage(A, 0, 0, c.width, c.height);
-			var borderSize = getBorderSize();
+			var resizer = c.width / A.width
+			var borderSize = getBorderSize() * resizer;
 			ctx.beginPath();
 			ctx.strokeStyle = "blue";
 			ctx.lineWidth = "3";
-			ctx.rect(borderSize, borderSize, A.width - borderSize * 2, A.height - borderSize * 2);
+			ctx.rect(borderSize, borderSize, A.width * resizer - borderSize * 2, A.height * resizer - borderSize * 2);
 			ctx.stroke();
 
 			// Left blend gradient
@@ -111,28 +112,28 @@
 			gradient.addColorStop(0, rgb(0, 0, 255, 1));
 			gradient.addColorStop(1, rgb(0, 0, 255, 0));
 			ctx.fillStyle = gradient;
-			ctx.fillRect(0, 0, A.width, A.height);
+			ctx.fillRect(0, 0, A.width * resizer, A.height * resizer);
 
 			// Top blend gradient
 			gradient = ctx.createLinearGradient(0, 0, 0, borderSize);
 			gradient.addColorStop(0, rgb(0, 0, 255, 1));
 			gradient.addColorStop(1, rgb(0, 0, 255, 0));
 			ctx.fillStyle = gradient;
-			ctx.fillRect(0, 0, A.width, A.height);
+			ctx.fillRect(0, 0, A.width * resizer, A.height * resizer);
 
 			// Right blend gradient
-			gradient = ctx.createLinearGradient(A.width - borderSize, 0, A.width, 0);
+			gradient = ctx.createLinearGradient(A.width * resizer - borderSize, 0, A.width * resizer, 0);
 			gradient.addColorStop(0, rgb(0, 0, 255, 0));
 			gradient.addColorStop(1, rgb(0, 0, 255, 1));
 			ctx.fillStyle = gradient;
-			ctx.fillRect(0, 0, A.width, A.height);
+			ctx.fillRect(0, 0, A.width * resizer, A.height * resizer);
 
 			// Bottom blend gradient
-			gradient = ctx.createLinearGradient(0, A.height - borderSize, 0, A.height);
+			gradient = ctx.createLinearGradient(0, A.height * resizer - borderSize, 0, A.height * resizer);
 			gradient.addColorStop(0, rgb(0, 0, 255, 0));
 			gradient.addColorStop(1, rgb(0, 0, 255, 1));
 			ctx.fillStyle = gradient;
-			ctx.fillRect(0, 0, A.width, A.height);
+			ctx.fillRect(0, 0, A.width * resizer, A.height * resizer);
 		};
 
 		// get size of tiles from UI
@@ -207,7 +208,7 @@
 									}
 
 									// Change canvas size for adjusted display
-									c.width = Math.min(window.innerWidth * 0.45, A.width);
+									c.width = Math.min(window.innerWidth * 0.4, A.width);
 									c.height = c.width * (A.height / A.width);
 
 									// init buttons
@@ -227,7 +228,7 @@
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
 				// Change canvas size for adjusted display
-				cOutput.width = Math.min(window.innerWidth * 0.45, imageOutput.width);
+				cOutput.width = Math.min(window.innerWidth * 0.4, imageOutput.width);
 				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
 				// Draw resized output image
 				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width, cOutput.height);
@@ -289,7 +290,7 @@
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
 				// Change canvas size for adjusted display
-				cOutput.width = Math.min(window.innerWidth * 0.9, imageOutput.width);
+				cOutput.width = Math.min(window.innerWidth * 0.8, imageOutput.width);
 				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
 				// Draw resized output image
 				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width, cOutput.height);

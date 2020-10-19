@@ -262,7 +262,7 @@
 									}
 
 									// Change canvas size for adjusted display
-									c.width = Math.min(window.innerWidth * 0.45, A.width);
+									c.width = Math.min(window.innerWidth * 0.4, A.width);
 									c.height = c.width * (A.height / A.width);
 
 									// init buttons
@@ -282,7 +282,7 @@
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
 				// Change canvas size for adjusted display
-				cOutput.width = Math.min(window.innerWidth * 0.45, imageOutput.width);
+				cOutput.width = Math.min(window.innerWidth * 0.4, imageOutput.width);
 				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
 				// Draw resized output image
 				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width, cOutput.height);
@@ -344,7 +344,7 @@
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
 				// Change canvas size for adjusted display
-				cOutput.width = Math.min(window.innerWidth * 0.9, imageOutput.width);
+				cOutput.width = Math.min(window.innerWidth * 0.8, imageOutput.width);
 				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
 				// Draw resized output image
 				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width, cOutput.height);
