@@ -3,6 +3,7 @@ layout: demo
 date:   2020-10-16
 title:  "Texture synthesis with histogram-preserving blending"
 authors: [
+            { name: "Thomas Deliot"},
             { name: "Eric Heitz"},
             { name: "Fabrice Neyret", affiliation: "CNRS/Inria"}
          ]
