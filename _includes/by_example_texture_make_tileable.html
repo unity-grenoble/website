@@ -61,7 +61,7 @@
 			<button onclick="saveResult()" id="downloadButton">Download Result</button>
 			<button onclick="switchDisplayMode()" id="switchDisplayButton">Enable 2x2 Tiling Preview</button>
 		</div>
-		<i>The output display might be downscaled. Use the button above to download.</i>
+		<i>The output display might be rescaled. Use the button above to download.</i>
 		<br />
 
 		<canvas id="outputCanvas" width="0" height="0" style="border: border: dashed 1px #444;">
@@ -115,13 +115,11 @@
 		// manage UI updates
 		function drawInputCanvas() {
 			// Change canvas size for adjusted display
-			c.width = Math.min(window.innerWidth * 0.4, A.width);
-			if (cOutput.width > 0) {
-				var ratio = cOutput.width / output.width;
-				if (displayTiled == true)
-					ratio = cOutput.width / (output.width * 2);
-				c.width = A.width * ratio;
-			}
+			var inputScale = Math.min(window.innerWidth * 0.4, A.width) / A.width;
+			var outputScale = 9999;
+			if (cOutput.width > 0)
+				var outputScale = Math.min(window.innerWidth * 0.4, output.width) / output.width;
+			c.width = Math.min(inputScale, outputScale) * A.width;
 			c.height = c.width * (A.height / A.width);
 			ctx.drawImage(A, 0, 0, c.width, c.height);
 
@@ -216,7 +214,7 @@
 										}
 									}
 
-									// init buttons
+									clearOutput();
 									initRadioButton();
 								};
 						};
@@ -248,7 +246,9 @@
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
 				// Change canvas size for adjusted display
-				cOutput.width = Math.min(window.innerWidth * 0.4, imageOutput.width);
+				var inputScale = Math.min(window.innerWidth * 0.4, A.width) / A.width;
+				var outputScale = Math.min(window.innerWidth * 0.4, imageOutput.width) / imageOutput.width;
+				cOutput.width = Math.min(inputScale, outputScale) * imageOutput.width;
 				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
 				// Draw resized output image
 				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width, cOutput.height);
@@ -264,7 +264,9 @@
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
 				// Change canvas size for adjusted display
-				cOutput.width = Math.min(window.innerWidth * 0.8, imageOutput.width * 2);
+				var inputScale = Math.min(window.innerWidth * 0.4, A.width) / A.width;
+				var outputScale = Math.min(window.innerWidth * 0.4, imageOutput.width) / imageOutput.width;
+				cOutput.width = Math.min(inputScale, outputScale) * imageOutput.width * 2;
 				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
 				// Draw resized output image in 2*2 tiling
 				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width / 2, cOutput.height / 2);
@@ -286,6 +288,14 @@
 			document.body.appendChild(a)
 			a.click()
 			document.body.removeChild(a)
+		}
+
+		// Clear Output
+		function clearOutput() {
+			cOutput.width = 0;
+			cOutput.height = 0;
+			output = null
+			outputDataURL = null
 		}
 
 
