@@ -48,19 +48,18 @@
 	<br />
 
 	<div id="outputImage">
-
+		4. Generate output:
 		<div id="controls">
 			<button onclick="resynthesis()">Compute</button>
 			<button onclick="changeSeedAndResynthesis()">Chande Seed & Compute</button>
 		</div>
 
 		<br />
-		<br />
 
+		5. Output:
 		<div id="outputControls">
 			<button onclick="saveResult()" id="downloadButton">Download Result</button>
-			<button onclick="displayOutput()" id="displayOutputButton">Display Normal</button>
-			<button onclick="displayTiledOutput()" id="displayTiledButton">Display Tiling Preview</button>
+			<button onclick="switchDisplayMode()" id="switchDisplayButton">Enable 2x2 Tiling Preview</button>
 		</div>
 		<i>The output display might be downscaled. Use the button above to download.</i>
 		<br />
@@ -83,13 +82,30 @@
 		/**********************************************/
 		/**********************************************/
 		/**********************************************/
+		// canvas input
+		var c = document.getElementById("inputCanvas");
+		var ctx = c.getContext("2d");
+
+		// image data
+		var A;
+		var imageInput = { dataR: [], dataG: [], dataB: [], width: 0, height: 0 };
+		var borderSizePossibleValues = []
+
+		// output data
+		var cOutput = document.getElementById("outputCanvas");
+		var ctxOutput = cOutput.getContext("2d");
+		var output;
+		var outputDataURL;
+
+		// display parameters
+		var displayTiled = false;
 
 		// init UI
 		// Note that this loop runs till square root
 		function initRadioButton(imageSize) {
 			var slider = document.getElementById("borderSizeSlider");
-			slider.oninput = changeBorderSize
-			changeBorderSize();
+			slider.oninput = drawInputCanvas
+			drawInputCanvas();
 		}
 
 		function rgb(r, g, b, a) {
@@ -97,9 +113,19 @@
 		}
 
 		// manage UI updates
-		function changeBorderSize() {
+		function drawInputCanvas() {
+			// Change canvas size for adjusted display
+			c.width = Math.min(window.innerWidth * 0.4, A.width);
+			if (cOutput.width > 0) {
+				var ratio = cOutput.width / output.width;
+				if (displayTiled == true)
+					ratio = cOutput.width / (output.width * 2);
+				c.width = A.width * ratio;
+			}
+			c.height = c.width * (A.height / A.width);
 			ctx.drawImage(A, 0, 0, c.width, c.height);
-			var resizer = c.width / A.width
+
+			var resizer = c.width / A.width;
 			var borderSize = getBorderSize() * resizer;
 			ctx.beginPath();
 			ctx.strokeStyle = "blue";
@@ -142,23 +168,6 @@
 			pos = slider.value / 100.0
 			return Math.max(Math.floor(pos * Math.min(imageInput.width, imageInput.height) / 2.0), 2)
 		}
-
-		// canvas input
-		var c = document.getElementById("inputCanvas");
-		var ctx = c.getContext("2d");
-
-		// image data
-		var A;
-		var imageInput = { dataR: [], dataG: [], dataB: [], width: 0, height: 0 };
-		var borderSizePossibleValues = []
-
-		// output data
-		var cOutput = document.getElementById("outputCanvas");
-		var ctxOutput = cOutput.getContext("2d");
-		var output;
-
-		// display parameters
-		var displayTiled = false;
 
 		// mage file input
 		document.getElementById('files').addEventListener('change', handleFileSelect, false);
@@ -207,10 +216,6 @@
 										}
 									}
 
-									// Change canvas size for adjusted display
-									c.width = Math.min(window.innerWidth * 0.4, A.width);
-									c.height = c.width * (A.height / A.width);
-
 									// init buttons
 									initRadioButton();
 								};
@@ -220,10 +225,25 @@
 			}
 		}
 
-		// display output in resized canvas
+		function switchDisplayMode() {
+			if (displayTiled == true) {
+				displayOutput();
+				var newButtons = '<button onclick="saveResult()" id="downloadButton">Download Result</button><button onclick="switchDisplayMode()" id="switchDisplayButton">Enable 2x2 Tiling Preview</button>';
+				document.getElementById("outputControls").innerHTML = newButtons;
+				displayTiled = false;
+			}
+			else {
+				displayTiledOutput();
+				var newButtons = '<button onclick="saveResult()" id="downloadButton">Download Result</button><button onclick="switchDisplayMode()" id="switchDisplayButton">Disable 2x2 Tiling Preview</button>';
+				document.getElementById("outputControls").innerHTML = newButtons;
+				displayTiled = true;
+			}
+		}
+
+		// Display output in resized canvas
 		function displayOutput() {
 			var imageOutput = new Image();
-			imageOutput.src = outputToDataURL();
+			imageOutput.src = outputDataURL;
 
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
@@ -232,71 +252,40 @@
 				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
 				// Draw resized output image
 				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width, cOutput.height);
+				drawInputCanvas();
 			};
-
 			displayTiled = false;
 		}
 
-		// display original output
+		// Display tiled output in resized canvas
+		function displayTiledOutput() {
+			var imageOutput = new Image();
+			imageOutput.src = outputDataURL;
+			// Draw to resized output canvas when finished loading
+			imageOutput.onload = function () {
+				// Change canvas size for adjusted display
+				cOutput.width = Math.min(window.innerWidth * 0.8, imageOutput.width * 2);
+				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
+				// Draw resized output image in 2*2 tiling
+				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width / 2, cOutput.height / 2);
+				ctxOutput.drawImage(imageOutput, cOutput.width / 2, 0, cOutput.width / 2, cOutput.height / 2);
+				ctxOutput.drawImage(imageOutput, cOutput.width / 2, cOutput.height / 2, cOutput.width / 2, cOutput.height / 2);
+				ctxOutput.drawImage(imageOutput, 0, cOutput.height / 2, cOutput.width / 2, cOutput.height / 2);
+				drawInputCanvas();
+			};
+			displayTiled = true;
+		}
+
+
+		// Download output
 		function saveResult() {
 			// Create download action
 			var a = document.createElement('a');
-			a.href = outputToDataURL();
+			a.href = outputDataURL;
 			a.download = 'image.png';
 			document.body.appendChild(a)
 			a.click()
 			document.body.removeChild(a)
-		}
-
-		function outputToDataURL() {
-			var imageData = new ImageData(output.width, output.height);
-			var data = imageData.data;
-			for (var j = 0; j < output.height; ++j)
-				for (var i = 0; i < output.width; ++i) {
-					data[4 * (i + j * output.width) + 0] = output.dataR[j][i];
-					data[4 * (i + j * output.width) + 1] = output.dataG[j][i];
-					data[4 * (i + j * output.width) + 2] = output.dataB[j][i];
-					data[4 * (i + j * output.width) + 3] = 255;
-				}
-			var cOutput2 = document.createElement('canvas');
-			var ctxOutput2 = cOutput2.getContext("2d");
-			cOutput2.width = output.width;
-			cOutput2.height = output.height;
-			ctxOutput2.putImageData(imageData, 0, 0);
-			var dataURL = cOutput2.toDataURL('image/png');
-			return dataURL;
-		}
-
-		// display tiled output in resized canvas
-		function displayTiledOutput() {
-			// Created tiled 2*2 output image
-			var imageData = new ImageData(output.width * 2, output.height * 2);
-			var data = imageData.data;
-			for (var j = 0; j < output.height * 2; ++j)
-				for (var i = 0; i < output.width * 2; ++i) {
-					data[4 * (i + j * output.width * 2) + 0] = output.dataR[j % output.height][i % output.width];
-					data[4 * (i + j * output.width * 2) + 1] = output.dataG[j % output.height][i % output.width];
-					data[4 * (i + j * output.width * 2) + 2] = output.dataB[j % output.height][i % output.width];
-					data[4 * (i + j * output.width * 2) + 3] = 255;
-				}
-			var cOutput2 = document.createElement('canvas');
-			var ctxOutput2 = cOutput2.getContext("2d");
-			cOutput2.width = output.width * 2;
-			cOutput2.height = output.height * 2;
-			ctxOutput2.putImageData(imageData, 0, 0);
-
-			var imageOutput = new Image();
-			imageOutput.src = cOutput2.toDataURL('image/png');
-			// Draw to resized output canvas when finished loading
-			imageOutput.onload = function () {
-				// Change canvas size for adjusted display
-				cOutput.width = Math.min(window.innerWidth * 0.8, imageOutput.width);
-				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
-				// Draw resized output image
-				ctxOutput.drawImage(imageOutput, 0, 0, cOutput.width, cOutput.height);
-			};
-
-			displayTiled = true;
 		}
 
 
@@ -331,20 +320,20 @@
 		}
 
 		function setSeed(i) {
-			rngState = wangHash(i)
+			rngState = wangHash(i);
 		}
 
 		function changeSeed() {
 			setSeed(getInputSeed())
-			document.getElementById("inputSeed").value = Math.floor(randXorshiftFloat() * 4294967296)
+			document.getElementById("inputSeed").value = Math.floor(randXorshiftFloat() * 4294967296);
 		}
 
 		function getInputSeed() {
-			return document.getElementById("inputSeed").value
+			return document.getElementById("inputSeed").value;
 		}
 
 		function remapValue(value, low1, high1, low2, high2) {
-			return low2 + (value - low1) * (high2 - low2) / (high1 - low1)
+			return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
 		}
 
 		function clamp(num, min, max) {
@@ -356,12 +345,12 @@
 			if (r < 0) {
 				r += n;
 			}
-			return r
+			return r;
 		}
 
 		function changeSeedAndResynthesis() {
-			changeSeed()
-			resynthesis()
+			changeSeed();
+			resynthesis();
 		}
 
 		// algorithm main function
@@ -518,11 +507,33 @@
 			// make output image have same histogram as input
 			output = unmakeHistoGaussianEigen(output, imageInput, eigenVectors);
 
+			// Prepare data URL for display/download
+			outputDataURL = dataToDataURL(output)
+
 			// display output in canvas
 			if (displayTiled == false)
 				displayOutput();
 			else
 				displayTiledOutput();
+		}
+
+		function dataToDataURL(input) {
+			var imageData = new ImageData(input.width, input.height);
+			var data = imageData.data;
+			for (var j = 0; j < input.height; ++j)
+				for (var i = 0; i < input.width; ++i) {
+					data[4 * (i + j * input.width) + 0] = input.dataR[j][i];
+					data[4 * (i + j * input.width) + 1] = input.dataG[j][i];
+					data[4 * (i + j * input.width) + 2] = input.dataB[j][i];
+					data[4 * (i + j * input.width) + 3] = 255;
+				}
+			var cOutput2 = document.createElement('canvas');
+			var ctxOutput2 = cOutput2.getContext("2d");
+			cOutput2.width = input.width;
+			cOutput2.height = input.height;
+			ctxOutput2.putImageData(imageData, 0, 0);
+			var dataURL = cOutput2.toDataURL('image/png');
+			return dataURL;
 		}
 
 		// input: image with arbitrary histogram
