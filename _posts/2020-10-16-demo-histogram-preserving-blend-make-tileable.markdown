@@ -5,7 +5,7 @@ title:  "Make your texture tileable with histogram-preserving blending"
 authors: [
             { name: "Thomas Deliot"},
             { name: "Eric Heitz"},
-            { name: "Fabrice Neyret", affiliation: "CNRS/Inria"}
+            { name: "Fabrice Neyret", affiliation: "CNRS/Inria", url: "http://evasion.imag.fr/Membres/Fabrice.Neyret/"}
          ]
 categories: demo
 thumbnail: "/images/thumbnails/demo_texture_synthesis_2.png"
