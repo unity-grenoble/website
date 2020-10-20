@@ -59,7 +59,8 @@
 		5. Output:
 		<div id="outputControls">
 			<button onclick="saveResult()" id="downloadButton">Download Result</button>
-			<button onclick="switchDisplayMode()" id="switchDisplayButton">Enable 2x2 Tiling Preview</button>
+			<button onclick="switchTilingMode()" id="switchTilingButton">Show 2x2 Tiling Preview</button>
+			<button onclick="switchOutputSource()" id="switchOutputSourceButton">Show Original</button>
 		</div>
 		<i>The output display might be rescaled. Use the button above to download.</i>
 		<br />
@@ -99,6 +100,7 @@
 
 		// display parameters
 		var displayTiled = false;
+		var displayOriginal = false;
 
 		// init UI
 		// Note that this loop runs till square root
@@ -223,25 +225,47 @@
 			}
 		}
 
-		function switchDisplayMode() {
+		function switchTilingMode() {
 			if (displayTiled == true) {
 				displayOutput();
-				var newButtons = '<button onclick="saveResult()" id="downloadButton">Download Result</button><button onclick="switchDisplayMode()" id="switchDisplayButton">Enable 2x2 Tiling Preview</button>';
-				document.getElementById("outputControls").innerHTML = newButtons;
 				displayTiled = false;
 			}
 			else {
 				displayTiledOutput();
-				var newButtons = '<button onclick="saveResult()" id="downloadButton">Download Result</button><button onclick="switchDisplayMode()" id="switchDisplayButton">Disable 2x2 Tiling Preview</button>';
-				document.getElementById("outputControls").innerHTML = newButtons;
 				displayTiled = true;
 			}
+			resetControlsButtonText();
+		}
+
+		function switchOutputSource() {
+			displayOriginal = !displayOriginal;
+			if (displayTiled == false) {
+				displayOutput();
+			}
+			else {
+				displayTiledOutput();
+			}
+			resetControlsButtonText();
+		}
+
+		function resetControlsButtonText() {
+			var newButtons = '';
+			newButtons += '<button onclick="saveResult()" id="downloadButton">Download Result</button>   ';
+			if (displayTiled == true)
+				newButtons += '<button onclick="switchTilingMode()" id="switchTilingButton">Hide 2x2 Tiling Preview</button>   ';
+			else
+				newButtons += '<button onclick="switchTilingMode()" id="switchTilingButton">Show 2x2 Tiling Preview</button>   ';
+			if (displayOriginal == true)
+				newButtons += '<button onclick="switchOutputSource()" id="switchOutputSourceButton">Show Tileable</button>   ';
+			else
+				newButtons += '<button onclick="switchOutputSource()" id="switchOutputSourceButton">Show Original</button>   ';
+			document.getElementById("outputControls").innerHTML = newButtons;
 		}
 
 		// Display output in resized canvas
 		function displayOutput() {
 			var imageOutput = new Image();
-			imageOutput.src = outputDataURL;
+			imageOutput.src = displayOriginal == true ? A.src : outputDataURL;
 
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
@@ -260,7 +284,7 @@
 		// Display tiled output in resized canvas
 		function displayTiledOutput() {
 			var imageOutput = new Image();
-			imageOutput.src = outputDataURL;
+			imageOutput.src = displayOriginal == true ? A.src : outputDataURL;
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
 				// Change canvas size for adjusted display
