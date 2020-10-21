@@ -41,6 +41,7 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------ -->
 
+
 <body>
 
 
@@ -69,9 +70,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 	<div class="column">
 		<div class="col-sm-4">
-			2. Adjust blending border width:
+			2. Adjust blending border width (0-100%):
 			<div class="slideBorderSize">
-				<input type="range" min="0" max="99" value="33" class="slider" id="borderSizeSlider">
+				<input type="range" min="0" max="100" value="33" class="slider" id="borderSizeSlider">
+				<input type="number" min="0" max="100" value="33" id="borderSizeField" />
 			</div>
 
 			<br />
@@ -90,7 +92,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		4. Generate output:
 		<div id="controls">
 			<button onclick="resynthesis()">Compute</button>
-			<button onclick="changeSeedAndResynthesis()">Change Seed & Compute</button>
+			<button onclick="changeSeedAndResynthesis()">Chande Seed & Compute</button>
 		</div>
 
 		<br />
@@ -141,11 +143,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		var displayTiled = false;
 		var displayOriginal = false;
 
-		// init UI
-		// Note that this loop runs till square root
-		function initRadioButton(imageSize) {
+		initInterface();
+
+		// Init UI
+		function initInterface(imageSize) {
 			var slider = document.getElementById("borderSizeSlider");
-			slider.oninput = drawInputCanvas
+			slider.oninput = setBorderSizeFromSlider
+			var field = document.getElementById("borderSizeField");
+			field.oninput = setBorderSizeFromField
 			drawInputCanvas();
 		}
 
@@ -155,6 +160,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 		// manage UI updates
 		function drawInputCanvas() {
+			if (typeof A === 'undefined' || A.width <= 0)
+				return;
+
 			// Change canvas size for adjusted display
 			var inputScale = Math.min(window.innerWidth * 0.4, A.width) / A.width;
 			var outputScale = 9999;
@@ -200,6 +208,22 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			ctx.fillStyle = gradient;
 			ctx.fillRect(0, 0, A.width * resizer, A.height * resizer);
 		};
+
+		// Border size control
+		function setBorderSizeFromSlider() {
+			var field = document.getElementById("borderSizeField");
+			var slider = document.getElementById("borderSizeSlider");
+			field.value = slider.value;
+			drawInputCanvas();
+		}
+
+		// Border size control
+		function setBorderSizeFromField() {
+			var field = document.getElementById("borderSizeField");
+			var slider = document.getElementById("borderSizeSlider");
+			slider.value = field.value;
+			drawInputCanvas();
+		}
 
 		// get size of tiles from UI
 		function getBorderSize() {
@@ -256,7 +280,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 									}
 
 									clearOutput();
-									initRadioButton();
+									initInterface();
 								};
 						};
 					})(f);

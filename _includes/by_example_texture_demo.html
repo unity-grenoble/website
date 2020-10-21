@@ -68,7 +68,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 			<br />
 
-			3. Select tile size in input image:
+			3. Select tile size in input image (0-50%):
 			<br />
 			<i>Larger tile size allows preserving lower frequencies in the example.
 				<br />
@@ -77,6 +77,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			<br />
 			<div class="slideTileSize">
 				<input type="range" min="0" max="50" value="25" class="slider" id="tileSizeSlider">
+				<input type="number" min="0" max="50" value="25" id="tileSizeField" />
 			</div>
 
 			<br />
@@ -111,7 +112,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		6. Generate output:
 		<div id="controls">
 			<button onclick="resynthesis()">Compute</button>
-			<button onclick="changeSeedAndResynthesis()">Change Seed & Compute</button>
+			<button onclick="changeSeedAndResynthesis()">Chande Seed & Compute</button>
 		</div>
 
 		<br />
@@ -159,20 +160,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		// display parameters
 		var displayTiled = false;
 
-		// init UI
-		function initRadioButton() {
-			// remove
+		initInterface();
+
+		// Init UI
+		function initInterface() {
+			// remove radio buttons
 			var rTileable = document.getElementsByName("tileableExample");
 			for (var i = 0; i < rTileable.length; ++i) {
 				rTileable[i].parentElement.removeChild(rTileable[i]);
-			}
-			var rSize = document.getElementsByName("tileSize");
-			for (var i = 0; i < rSize.length; ++i) {
-				rSize[i].parentElement.removeChild(rSize[i]);
-			}
-			var rNumber = document.getElementsByName("tileNumber");
-			for (var i = 0; i < rNumber.length; ++i) {
-				rNumber[i].parentElement.removeChild(rNumber[i]);
 			}
 
 			// is example tileable
@@ -184,12 +179,17 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 			// tile size
 			var slider = document.getElementById("tileSizeSlider");
-			slider.oninput = drawInputCanvas
+			slider.oninput = setTileSizeFromSlider
+			var field = document.getElementById("tileSizeField");
+			field.oninput = setTileSizeFromField
 			drawInputCanvas();
 		}
 
 		// manage UI updates
 		function drawInputCanvas() {
+			if (typeof A === 'undefined' || A.width <= 0)
+				return;
+
 			// Change canvas size for adjusted display
 			var inputScale = Math.min(window.innerWidth * 0.4, A.width) / A.width;
 			var outputScale = 9999;
@@ -243,6 +243,22 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 				return true
 			else
 				return false
+		}
+
+		// Border size control
+		function setTileSizeFromSlider() {
+			var field = document.getElementById("tileSizeField");
+			var slider = document.getElementById("tileSizeSlider");
+			field.value = slider.value;
+			drawInputCanvas();
+		}
+
+		// Border size control
+		function setTileSizeFromField() {
+			var field = document.getElementById("tileSizeField");
+			var slider = document.getElementById("tileSizeSlider");
+			slider.value = field.value;
+			drawInputCanvas();
 		}
 
 		// get size of tiles from UI
@@ -310,7 +326,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 									}
 
 									clearOutput();
-									initRadioButton();
+									initInterface();
 								};
 						};
 					})(f);
