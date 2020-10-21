@@ -63,6 +63,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		<canvas id="inputCanvas" width="256" height="256" style="border: dashed 1px #444;">
 			Texte pour les navigateurs ne supportant pas le HTML5 Canvas.
 		</canvas>
+		<br />
+		<div id="inputControls">
+			<button onclick="switchGradientRemoval()" id="gradientRemovalButton">Remove edge gradients</button>
+		</div>
+		<br />
 
 	</div>
 
@@ -129,9 +134,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		var ctx = c.getContext("2d");
 
 		// image data
-		var A;
+		var exampleStored;
+		var example;
 		var imageInput = { dataR: [], dataG: [], dataB: [], width: 0, height: 0 };
-		var borderSizePossibleValues = []
+		var gradientRemovalApplied = false;
 
 		// output data
 		var cOutput = document.getElementById("outputCanvas");
@@ -160,24 +166,24 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 		// manage UI updates
 		function drawInputCanvas() {
-			if (typeof A === 'undefined' || A.width <= 0)
+			if (typeof example === 'undefined' || example.width <= 0)
 				return;
 
 			// Change canvas size for adjusted display
-			var inputScale = Math.min(window.innerWidth * 0.4, A.width) / A.width;
+			var inputScale = Math.min(window.innerWidth * 0.4, example.width) / example.width;
 			var outputScale = 9999;
 			if (cOutput.width > 0)
 				var outputScale = Math.min(window.innerWidth * 0.4, output.width) / output.width;
-			c.width = Math.min(inputScale, outputScale) * A.width;
-			c.height = c.width * (A.height / A.width);
-			ctx.drawImage(A, 0, 0, c.width, c.height);
+			c.width = Math.min(inputScale, outputScale) * example.width;
+			c.height = c.width * (example.height / example.width);
+			ctx.drawImage(example, 0, 0, c.width, c.height);
 
-			var resizer = c.width / A.width;
+			var resizer = c.width / example.width;
 			var borderSize = getBorderSize() * resizer;
 			ctx.beginPath();
 			ctx.strokeStyle = "blue";
 			ctx.lineWidth = "3";
-			ctx.rect(borderSize, borderSize, A.width * resizer - borderSize * 2, A.height * resizer - borderSize * 2);
+			ctx.rect(borderSize, borderSize, example.width * resizer - borderSize * 2, example.height * resizer - borderSize * 2);
 			ctx.stroke();
 
 			// Left blend gradient
@@ -185,28 +191,28 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			gradient.addColorStop(0, rgb(0, 0, 255, 1));
 			gradient.addColorStop(1, rgb(0, 0, 255, 0));
 			ctx.fillStyle = gradient;
-			ctx.fillRect(0, 0, A.width * resizer, A.height * resizer);
+			ctx.fillRect(0, 0, example.width * resizer, example.height * resizer);
 
 			// Top blend gradient
 			gradient = ctx.createLinearGradient(0, 0, 0, borderSize);
 			gradient.addColorStop(0, rgb(0, 0, 255, 1));
 			gradient.addColorStop(1, rgb(0, 0, 255, 0));
 			ctx.fillStyle = gradient;
-			ctx.fillRect(0, 0, A.width * resizer, A.height * resizer);
+			ctx.fillRect(0, 0, example.width * resizer, example.height * resizer);
 
 			// Right blend gradient
-			gradient = ctx.createLinearGradient(A.width * resizer - borderSize, 0, A.width * resizer, 0);
+			gradient = ctx.createLinearGradient(example.width * resizer - borderSize, 0, example.width * resizer, 0);
 			gradient.addColorStop(0, rgb(0, 0, 255, 0));
 			gradient.addColorStop(1, rgb(0, 0, 255, 1));
 			ctx.fillStyle = gradient;
-			ctx.fillRect(0, 0, A.width * resizer, A.height * resizer);
+			ctx.fillRect(0, 0, example.width * resizer, example.height * resizer);
 
 			// Bottom blend gradient
-			gradient = ctx.createLinearGradient(0, A.height * resizer - borderSize, 0, A.height * resizer);
+			gradient = ctx.createLinearGradient(0, example.height * resizer - borderSize, 0, example.height * resizer);
 			gradient.addColorStop(0, rgb(0, 0, 255, 0));
 			gradient.addColorStop(1, rgb(0, 0, 255, 1));
 			ctx.fillStyle = gradient;
-			ctx.fillRect(0, 0, A.width * resizer, A.height * resizer);
+			ctx.fillRect(0, 0, example.width * resizer, example.height * resizer);
 		};
 
 		// Border size control
@@ -249,15 +255,17 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 				reader.onload =
 					(function (theFile) {
 						return function (e) {
-							A = new Image();
-							A.src = e.target.result;
+							example = new Image();
+							example.src = e.target.result;
 
-							A.onload =
+							example.onload =
 								function () {
+									exampleStored = example;
+
 									// display image
-									c.width = A.width;
-									c.height = A.height;
-									ctx.drawImage(A, 0, 0)
+									c.width = example.width;
+									c.height = example.height;
+									ctx.drawImage(example, 0, 0)
 
 									// copy image data
 									var copie_img_chat = ctx.getImageData(0, 0, c.width, c.height);
@@ -286,6 +294,71 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 					})(f);
 				reader.readAsDataURL(f);
 			}
+		}
+
+		function switchGradientRemoval() {
+			if (gradientRemovalApplied == true) {
+				resetGradientRemovalToInput();
+				gradientRemovalApplied = false;
+				var newButton = '<button onclick="switchGradientRemoval()" id="gradientRemovalButton">Remove edge gradients</button>';
+				document.getElementById("inputControls").innerHTML = newButton;
+			}
+			else {
+				applyGradientRemovalToInput();
+				gradientRemovalApplied = true;
+				var newButton = '<button onclick="switchGradientRemoval()" id="gradientRemovalButton">Reset edge gradients</button>';
+				document.getElementById("inputControls").innerHTML = newButton;
+			}
+		}
+
+		function applyGradientRemovalToInput() {
+			if (typeof example === 'undefined' || example.width <= 0)
+				return;
+
+			imageInput = gradientRemoval(imageInput);
+
+			var newA = new Image();
+			newA.src = dataToDataURL(imageInput);
+			newA.onload = function () {
+				example = newA;
+				drawInputCanvas();
+			};
+		}
+
+		function resetGradientRemovalToInput() {
+			if (typeof exampleStored === 'undefined' || exampleStored.width <= 0)
+				return;
+
+			example = new Image();
+			example.src = exampleStored.src;
+
+			example.onload =
+				function () {
+					exampleStored = example;
+					// display image
+					c.width = example.width;
+					c.height = example.height;
+					ctx.drawImage(example, 0, 0)
+					// copy image data
+					var copie_img_chat = ctx.getImageData(0, 0, c.width, c.height);
+					var data = copie_img_chat.data;
+					imageInput.width = c.width;
+					imageInput.height = c.height;
+					imageInput.dataR = [];
+					imageInput.dataG = [];
+					imageInput.dataB = [];
+					for (var j = 0; j < c.height; ++j) {
+						imageInput.dataR[j] = [];
+						imageInput.dataG[j] = [];
+						imageInput.dataB[j] = [];
+						for (var i = 0; i < c.width; ++i) {
+							imageInput.dataR[j][i] = data[4 * (i + j * c.width) + 0];
+							imageInput.dataG[j][i] = data[4 * (i + j * c.width) + 1];
+							imageInput.dataB[j][i] = data[4 * (i + j * c.width) + 2];
+						}
+					}
+					drawInputCanvas();
+				};
 		}
 
 		function switchTilingMode() {
@@ -328,12 +401,12 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		// Display output in resized canvas
 		function displayOutput() {
 			var imageOutput = new Image();
-			imageOutput.src = displayOriginal == true ? A.src : outputDataURL;
+			imageOutput.src = displayOriginal == true ? example.src : outputDataURL;
 
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
 				// Change canvas size for adjusted display
-				var inputScale = Math.min(window.innerWidth * 0.4, A.width) / A.width;
+				var inputScale = Math.min(window.innerWidth * 0.4, example.width) / example.width;
 				var outputScale = Math.min(window.innerWidth * 0.4, imageOutput.width) / imageOutput.width;
 				cOutput.width = Math.min(inputScale, outputScale) * imageOutput.width;
 				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
@@ -347,11 +420,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		// Display tiled output in resized canvas
 		function displayTiledOutput() {
 			var imageOutput = new Image();
-			imageOutput.src = displayOriginal == true ? A.src : outputDataURL;
+			imageOutput.src = displayOriginal == true ? example.src : outputDataURL;
 			// Draw to resized output canvas when finished loading
 			imageOutput.onload = function () {
 				// Change canvas size for adjusted display
-				var inputScale = Math.min(window.innerWidth * 0.4, A.width) / A.width;
+				var inputScale = Math.min(window.innerWidth * 0.4, example.width) / example.width;
 				var outputScale = Math.min(window.innerWidth * 0.4, imageOutput.width) / imageOutput.width;
 				cOutput.width = Math.min(inputScale, outputScale) * imageOutput.width * 2;
 				cOutput.height = cOutput.width * (imageOutput.height / imageOutput.width);
@@ -631,6 +704,68 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			ctxOutput2.putImageData(imageData, 0, 0);
 			var dataURL = cOutput2.toDataURL('image/png');
 			return dataURL;
+		}
+
+		function gaussian2d(x, y, std) {
+			var std2 = Math.pow(std, 2.0);
+			return (1.0 / (2 * 3.14159265359 * std2)) * Math.exp(-((Math.pow(x, 2.0) + Math.pow(y, 2.0)) / (2 * std2)));
+		}
+
+		// input: image
+		// performs cheap high pass filter on input
+		function gradientRemoval(input) {
+			// Allocate output
+			var output = { dataR: [], dataG: [], dataB: [], totalWeight: [], width: input.width, height: input.height };
+			for (var j = 0; j < output.height; ++j) {
+				output.dataR[j] = [];
+				output.dataG[j] = [];
+				output.dataB[j] = [];
+				for (var i = 0; i < output.width; ++i) {
+					output.dataR[j][i] = input.dataR[j][i];
+					output.dataG[j][i] = input.dataG[j][i];
+					output.dataB[j][i] = input.dataB[j][i];
+				}
+			}
+
+			// Compute mean gradient from left to right over Y and from top to bottom over X
+			var gradientX_R = 0.0;
+			var gradientX_G = 0.0;
+			var gradientX_B = 0.0;
+			for (var y = 0; y < input.height; ++y) {
+				gradientX_R += input.dataR[y][input.width - 1] - input.dataR[y][0];
+				gradientX_G += input.dataG[y][input.width - 1] - input.dataG[y][0];
+				gradientX_B += input.dataB[y][input.width - 1] - input.dataB[y][0];
+			}
+			var gradientY_R = 0.0;
+			var gradientY_G = 0.0;
+			var gradientY_B = 0.0;
+			for (var x = 0; x < input.width; ++x) {
+				gradientY_R += input.dataR[input.height - 1][x] - input.dataR[0][x];
+				gradientY_G += input.dataG[input.height - 1][x] - input.dataG[0][x];
+				gradientY_B += input.dataB[input.height - 1][x] - input.dataB[0][x];
+			}
+			gradientX_R /= input.height;
+			gradientX_G /= input.height;
+			gradientX_B /= input.height;
+			gradientY_R /= input.width;
+			gradientY_G /= input.width;
+			gradientY_B /= input.width;
+
+			// Apply high pass filter on input
+			for (var y = 0; y < input.height; ++y) {
+				for (var x = 0; x < input.width; ++x) {
+					var tempX = (-0.5 + x / (input.width - 1));
+					var tempY = (-0.5 + y / (input.height - 1));
+					var gradientR = tempX * gradientX_R + tempY * gradientY_R
+					var gradientG = tempX * gradientX_G + tempY * gradientY_G
+					var gradientB = tempX * gradientX_B + tempY * gradientY_B
+					output.dataR[y][x] -= gradientR;
+					output.dataG[y][x] -= gradientG;
+					output.dataB[y][x] -= gradientB;
+				}
+			}
+
+			return output;
 		}
 
 		// input: image with arbitrary histogram
