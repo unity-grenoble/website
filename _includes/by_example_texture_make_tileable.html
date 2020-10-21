@@ -64,10 +64,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			Texte pour les navigateurs ne supportant pas le HTML5 Canvas.
 		</canvas>
 		<br />
-		<div id="inputControls">
-			<button onclick="switchGradientRemoval()" id="gradientRemovalButton">Remove edge gradients</button>
-		</div>
-		<br />
 
 	</div>
 
@@ -296,71 +292,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			}
 		}
 
-		function switchGradientRemoval() {
-			if (gradientRemovalApplied == true) {
-				resetGradientRemovalToInput();
-				gradientRemovalApplied = false;
-				var newButton = '<button onclick="switchGradientRemoval()" id="gradientRemovalButton">Remove edge gradients</button>';
-				document.getElementById("inputControls").innerHTML = newButton;
-			}
-			else {
-				applyGradientRemovalToInput();
-				gradientRemovalApplied = true;
-				var newButton = '<button onclick="switchGradientRemoval()" id="gradientRemovalButton">Reset edge gradients</button>';
-				document.getElementById("inputControls").innerHTML = newButton;
-			}
-		}
-
-		function applyGradientRemovalToInput() {
-			if (typeof example === 'undefined' || example.width <= 0)
-				return;
-
-			imageInput = gradientRemoval(imageInput);
-
-			var newA = new Image();
-			newA.src = dataToDataURL(imageInput);
-			newA.onload = function () {
-				example = newA;
-				drawInputCanvas();
-			};
-		}
-
-		function resetGradientRemovalToInput() {
-			if (typeof exampleStored === 'undefined' || exampleStored.width <= 0)
-				return;
-
-			example = new Image();
-			example.src = exampleStored.src;
-
-			example.onload =
-				function () {
-					exampleStored = example;
-					// display image
-					c.width = example.width;
-					c.height = example.height;
-					ctx.drawImage(example, 0, 0)
-					// copy image data
-					var copie_img_chat = ctx.getImageData(0, 0, c.width, c.height);
-					var data = copie_img_chat.data;
-					imageInput.width = c.width;
-					imageInput.height = c.height;
-					imageInput.dataR = [];
-					imageInput.dataG = [];
-					imageInput.dataB = [];
-					for (var j = 0; j < c.height; ++j) {
-						imageInput.dataR[j] = [];
-						imageInput.dataG[j] = [];
-						imageInput.dataB[j] = [];
-						for (var i = 0; i < c.width; ++i) {
-							imageInput.dataR[j][i] = data[4 * (i + j * c.width) + 0];
-							imageInput.dataG[j][i] = data[4 * (i + j * c.width) + 1];
-							imageInput.dataB[j][i] = data[4 * (i + j * c.width) + 2];
-						}
-					}
-					drawInputCanvas();
-				};
-		}
-
 		function switchTilingMode() {
 			if (displayTiled == true) {
 				displayOutput();
@@ -562,11 +493,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 				}
 			}
 
+			// Remove edge gradients from input image
+			var imageInputNoGradient = gradientRemoval(imageInput);
+
 			// Make input image have a Gaussian histogram
 			eigenVectors = [];
 			for (var i = 0; i < 3; i++)
 				eigenVectors[i] = [0, 0, 0];
-			var imageInputGaussian = makeHistoGaussianEigen(imageInput, eigenVectors);
+			var imageInputGaussian = makeHistoGaussianEigen(imageInputNoGradient, eigenVectors);
 
 			// Copy the input image and pre-blend out on borders
 			for (var y = 0; y < targetHeight; ++y) {
@@ -675,7 +609,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			}
 
 			// make output image have same histogram as input
-			output = unmakeHistoGaussianEigen(output, imageInput, eigenVectors);
+			output = unmakeHistoGaussianEigen(output, imageInputNoGradient, eigenVectors);
 
 			// Prepare data URL for display/download
 			outputDataURL = dataToDataURL(output)
@@ -706,13 +640,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			return dataURL;
 		}
 
-		function gaussian2d(x, y, std) {
-			var std2 = Math.pow(std, 2.0);
-			return (1.0 / (2 * 3.14159265359 * std2)) * Math.exp(-((Math.pow(x, 2.0) + Math.pow(y, 2.0)) / (2 * std2)));
-		}
-
 		// input: image
-		// performs cheap high pass filter on input
+		// performs cheap gradient removal on input
 		function gradientRemoval(input) {
 			// Allocate output
 			var output = { dataR: [], dataG: [], dataB: [], totalWeight: [], width: input.width, height: input.height };
