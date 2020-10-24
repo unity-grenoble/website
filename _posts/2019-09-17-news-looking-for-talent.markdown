@@ -1,7 +1,7 @@
 ---
 layout: news
 title:  "Unity Grenoble recrute"
-date:   2019-09-10 10:24:05 +0200
+date:   2020-10-24 10:24:05 +0200
 categories: news
 permalink: news/recrutement.html
 ---
@@ -23,7 +23,7 @@ Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en 
 
 ##### Comment candidater ?
 Merci d'adresser un e-mail avec CV, portfolio de projets et/ou liste de publication à la personne adéquate:
-* ~~Pour un stage : contacter Jonathan Dupuy (jonathandu@unity3d.com)~~ **Attention**: Les candidatures de stages 2020 sont maintenant fermées.
+* Pour un stage : contacter Jonathan Dupuy (jonathandu@unity3d.com)
 * Pour un poste d'ingénieur ou chercheur : contacter Kenneth Vanhoey (kennethv@unity3d.com)
 * Pour une autre demande : contacter le "research scientist" qui vous paraît pertinent
   
