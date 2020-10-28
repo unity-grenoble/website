@@ -16,7 +16,7 @@ Notre équipe actuelle s’axe autour du rendu photoréaliste (eg, modélisation
 Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en informatique graphique et/ou apprentissage profond (ou ayant/finalisant au moins un master dans le domaine)
 
 ##### Comment candidater ?
-Merci d'adresser un e-mail avec CV, portfolio de projets et/ou liste de publication vers le lien suivant:
+Merci de formuler votre demande munie d'un CV, portfolio de projets et/ou liste de publication en suivant le lien suivant:
 [https://careers.unity.com/position/graphics-research-intern/2419777](https://careers.unity.com/position/graphics-research-intern/2419777)
 
 **Attention** : toute candidature qui ne sera pas accompagnée d'un portfolio de projets/publications/travaux réalisés sera classée sans suite.
