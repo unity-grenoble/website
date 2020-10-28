@@ -10,7 +10,6 @@ permalink: news/recrutement.html
 
 Unity Technologies souhaite agrandir son équipe Unity Labs Grenoble, localisé à Montbonnot Saint-Martin, près de Grenoble. Il y a plusieurs ouvertures tant en postes d’ingénieurs que de chercheurs. Nous recrutons des
 * stagiaires de licence/master (ou séjours durant la thèse de doctorat),
-* ingénieurs (sortis d’école ou expérimentés),
 * chercheurs/chercheuses, jeunes ou expérimentés.
 
 Nous recherchons des personnes motivées et talentueuses intéressées par la recherche ou l'ingénierie en informatique graphique. Nous offrons la possibilité (et encourageons même) de publier dans des revues et conférences académiques de premier plan.
@@ -24,7 +23,6 @@ Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en 
 ##### Comment candidater ?
 Merci d'adresser un e-mail avec CV, portfolio de projets et/ou liste de publication à la personne adéquate:
 * Pour un stage : [lien vers candidature](https://careers.unity.com/position/graphics-research-intern/2419777)
-* Pour un poste d'ingénieur ou chercheur : contacter Kenneth Vanhoey (kennethv@unity3d.com)
 * Pour une autre demande : contacter le "research scientist" qui vous paraît pertinent
   
 **Attention** : toute candidature qui ne sera pas accompagnée d'un portfolio de projets/publications/travaux réalisés sera classée sans suite.
