@@ -18,6 +18,7 @@ Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en 
 ##### Comment candidater ?
 Merci d'adresser un e-mail avec CV, portfolio de projets et/ou liste de publication vers le lien suivant:
 [https://careers.unity.com/position/graphics-research-intern/2419777](https://careers.unity.com/position/graphics-research-intern/2419777)
+
 **Attention** : toute candidature qui ne sera pas accompagnée d'un portfolio de projets/publications/travaux réalisés sera classée sans suite.
 
 
