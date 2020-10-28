@@ -23,7 +23,7 @@ Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en 
 
 ##### Comment candidater ?
 Merci d'adresser un e-mail avec CV, portfolio de projets et/ou liste de publication à la personne adéquate:
-* Pour un stage : contacter Jonathan Dupuy (jonathandu@unity3d.com)
+* Pour un stage : https://careers.unity.com/position/graphics-research-intern/2419777
 * Pour un poste d'ingénieur ou chercheur : contacter Kenneth Vanhoey (kennethv@unity3d.com)
 * Pour une autre demande : contacter le "research scientist" qui vous paraît pertinent
   
