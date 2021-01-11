@@ -4,7 +4,7 @@ date:   2020-08-26
 title:  "Bringing an Accurate Fresnel to Real-Time Rendering: a Preintegrable Decomposition"
 authors: [
             { name: "Laurent Belcour" },
-            { name: "Megane Bati", affiliation: "IOGS", url: "" },
+            { name: "Megane Bati", affiliation: "IOGS" },
             { name: "Pascal Barla", affiliation: "Inria", url: "https://www.labri.fr/perso/barla/blog/" },
          ]
 conference: ACM SIGGRAPH 2020 Talks and Courses

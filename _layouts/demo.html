@@ -15,7 +15,7 @@
         {{ page.title }}
       </div>
       <div class="publication-authors">
-        {% assign authors_size = {{page.authors.size | minus: 1 }} %}
+        {% assign authors_size =  page.authors.size | minus: 1  %}
         {% for index in (0..authors_size) %}
 
         {% assign author = page.authors[index] %}
@@ -50,9 +50,6 @@
 
       <!-- Include demo description -->
       {{ content }}
-
-      <!-- Include demo html file -->
-      {% include {{ page.include_url }} %}
     </div>
   </div>
 

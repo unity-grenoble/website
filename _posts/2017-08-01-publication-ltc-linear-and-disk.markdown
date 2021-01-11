@@ -4,7 +4,7 @@ date:   2017-08-01
 title:  "Real-Time Line- and Disk-Light Shading with Linearly Transformed Cosines"
 authors: [
 			{ name: "Eric Heitz"},
-            { name: "Stephen Hill", affiliation: "Lucasfilm", url: ""  }            
+            { name: "Stephen Hill", affiliation: "Lucasfilm"  }            
          ]
 conference: "ACM SIGGRAPH Courses 2017"
 categories: publication

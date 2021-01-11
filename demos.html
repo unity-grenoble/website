@@ -51,7 +51,7 @@ order: 3
 
                 <!-- Generate author list -->
                 <div class="publication-authors">
-                    {% assign authors_size = {{post.authors.size | minus: 1 }} %}
+                    {% assign authors_size = post.authors.size | minus: 1 %}
                     {% for index in (0..authors_size) %}
 
                     {% assign author = post.authors[index] %}
@@ -72,7 +72,7 @@ order: 3
 
                 <!-- Content of the post -->
                 <div>
-                    {{ post.content }}
+                    {{ post.excerpt }}
                 </div>
             </div>
         </div>

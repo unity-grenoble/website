@@ -18,7 +18,7 @@ order: 4
     <div style="display:flex; width:45%; max-width: 45%; margin:1% 1% 1% 1%; border: 1px solid black; padding:1%; border-radius: 5px; background-color: rgb(242, 244, 255); 
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
         <div class="people-picture" style="margin-right:2%">
-            {% if !people.photo %}
+            {% if people.photo != nil %}
             <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo | prepend: site.baseurl }}" />
             {% else %}
             <img width="92px" height="92px" src="{{ 'images/people/default.svg' | prepend: site.baseurl }}" />
@@ -50,7 +50,7 @@ order: 4
                 {% if people.url %}
                 <a class="member_website" href="{{ people.url }}">&nbsp;website</a>
                 {% endif %}
-                {% if people.email && people.url %}
+                {% if people.email and people.url %}
                 &nbsp;-&nbsp;
                 {% endif %}
                 {% if people.email %}
@@ -71,7 +71,7 @@ order: 4
     <div style="display:flex; width:45%; max-width: 45%; margin:1% 1% 1% 1%; border: 1px solid black; padding:1%; border-radius: 5px; background-color: rgb(255, 249, 238); 
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
         <div class="people-picture" style="margin-right:2%">
-            {% if !people.photo %}
+            {% if people.photo != nil %}
             <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo | prepend: site.baseurl }}" />
             {% else %}
             <img width="92px" height="92px" src="{{ 'images/people/default.svg' | prepend: site.baseurl }}" />
@@ -103,7 +103,7 @@ order: 4
                 {% if people.url %}
                 <a class="member_website" href="{{ people.url }}">&nbsp;website</a>
                 {% endif %}
-                {% if people.email && people.url %}
+                {% if people.email and people.url %}
                 &nbsp;-&nbsp;
                 {% endif %}
                 {% if people.email %}
@@ -125,7 +125,7 @@ order: 4
     <div style="display:flex; width:45%; max-width: 45%; margin:1% 1% 1% 1%; border: 1px solid black; padding:1%; border-radius: 5px; background-color: rgb(240, 255, 241); 
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);">
         <div class="people-picture" style="margin-right:2%">
-            {% if !people.photo %}
+            {% if people.photo != nil %}
             <img width="92px" height="92px" style="max-width:none; width:90px; height:90px; overflow: hidden; border: solid 1px black;" src="{{ people.photo | prepend: site.baseurl }}" />
             {% else %}
             <img width="92px" height="92px" src="{{ '/images/people/default.svg' | prepend: site.baseurl }}" />
@@ -157,7 +157,7 @@ order: 4
                 {% if people.url %}
                 <a class="member_website" href="{{ people.url }}">&nbsp;website</a>
                 {% endif %}
-                {% if people.email && people.url %}
+                {% if people.email and people.url %}
                 &nbsp;-&nbsp;
                 {% endif %}
                 {% if people.email %}

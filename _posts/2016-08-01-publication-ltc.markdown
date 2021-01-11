@@ -5,8 +5,8 @@ title:  "Real-Time Polygonal-Light Shading with Linearly Transformed Cosines"
 authors: [
             { name: "Eric Heitz" },
             { name: "Jonathan Dupuy" },
-            { name: "Stephen Hill", affiliation: "Ubisoft Montreal", url: ""  },
-            { name: "David Neubelt", affiliation: "Ready At Dawn", url: ""  },
+            { name: "Stephen Hill", affiliation: "Ubisoft Montreal"  },
+            { name: "David Neubelt", affiliation: "Ready At Dawn"  },
 
          ]
 conference: "ACM SIGGRAPH 2016"
