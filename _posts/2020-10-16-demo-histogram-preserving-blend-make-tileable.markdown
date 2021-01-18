@@ -66,7 +66,7 @@ The GPU implementation presented in the paper is orders of magnitude faster.
   4. Generate output:
   <div id="controls">
     <button onclick="resynthesis()">Compute</button>
-    <button onclick="changeSeedAndResynthesis()">Chande Seed & Compute</button>
+    <button onclick="changeSeedAndResynthesis()">Change Seed & Compute</button>
   </div>
 
   <br />
