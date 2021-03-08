@@ -15,7 +15,7 @@
             {{ page.title }}
         </div>
         <div class="publication-authors">
-            {% assign authors_size = {{page.authors.size | minus: 1 }} %}
+            {% assign authors_size = page.authors.size | minus: 1 %}
             {% for index in (0..authors_size) %}
 
                 {% assign author = page.authors[index] %}
@@ -30,7 +30,12 @@
                 {% endif %}
                 <span class="publication-author">
                 <span class="publication-author-name">
-                    <a href="{{ author_url }}">{{ author.name }}</a>{% if index != authors_size %},{% endif %}
+                    {% if author_url != nil %}
+                        <a href="{{ author_url }}">{{ author.name }}</a>
+                    {% else %}
+                        {{ author.name }}
+                    {% endif %}
+                    {% if index != authors_size %},{% endif %}
                 </span>
                 <span class="publication-author-affiliation">
                     {{ author_affiliation }}
@@ -42,9 +47,9 @@
         <div class="publication-journal">
             {% if page.tags contains 'published' %}
                 Published in
-            {% elsif contains 'to_appear' %}
+            {% elsif page.tags contains 'to_appear' %}
                 To appear in
-            {% elsif contains 'techreport' %}
+            {% elsif page.tags contains 'techreport' %}
             {% endif %}
             {{ page.conference }}
         </div><br />
@@ -52,7 +57,7 @@
         <!-- Link to material -->
         {% if page.materials %}
         <div>
-            {% assign materials_size = {{page.materials.size | minus: 1 }} %}
+            {% assign materials_size = page.materials.size | minus: 1 %}
             {% for index in (0..materials_size) %}
                {% assign material = page.materials[index] %}
                 <span><a class="publication-material {{ material.type }}" href="{{ material.url }}">{{ material.name }}</a>{% if index < materials_size %},&nbsp;{% endif %}</span>

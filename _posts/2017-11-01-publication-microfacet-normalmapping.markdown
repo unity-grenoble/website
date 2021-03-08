@@ -3,10 +3,10 @@ layout: publication
 date:   2017-08-01
 title:  "Microfacet-based Normal Mapping for Robust Monte Carlo Path Tracing"
 authors: [			
-            { name: "Vincent Schüssler", affiliation: "KIT", url: ""  },    
+            { name: "Vincent Schüssler", affiliation: "KIT"  },    
 			{ name: "Eric Heitz"},			
-            { name: "Johannes Hanika", affiliation: "KIT", url: ""  },           
-            { name: "Carsten Dachsbacher", affiliation: "KIT", url: ""  },           
+            { name: "Johannes Hanika", affiliation: "KIT", url: "https://jo.dreggn.org/home/"  },           
+            { name: "Carsten Dachsbacher", affiliation: "KIT"  },           
          ]
 conference: "ACM SIGGRAPH Asia 2017"
 categories: publication

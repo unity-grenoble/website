@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+  {% include header.html %}
+
+  <div class="page-content">
+    <div class="wrapper">
+      <br />
+
+      <div class="publication-title" style="font-size:1.4em;">
+        {{ page.title }}
+      </div>
+      <div class="publication-authors">
+        {% assign authors_size =  page.authors.size | minus: 1  %}
+        {% for index in (0..authors_size) %}
+
+        {% assign author = page.authors[index] %}
+
+        {% assign author_infos = site.data.members | where: "name", author.name %}
+        {% if author_infos.size > 0 %}
+        {% assign author_affiliation = "Unity Technologies" %}
+        {% assign author_url = author_infos[0].url %}
+        {% else %}
+        {% assign author_affiliation = author.affiliation %}
+        {% assign author_url = author.url %}
+        {% endif %}
+        <span class="publication-author">
+          <span class="publication-author-name">
+            <a href="{{ author_url }}">{{ author.name }}</a>
+          </span>
+          <span class="publication-author-affiliation">
+            {{ author_affiliation }}
+          </span>
+          <span>
+            {% if index != authors_size %},{% endif %}
+          </span>
+        </span>
+
+        {% endfor %}
+      </div>
+      <br />
+
+      {% if page.banner %}
+      <img src="{{ site.url | append: page.banner }}" width="100%" />
+      {% endif %}
+
+      <!-- Include demo description -->
+      {{ content }}
+    </div>
+  </div>
+
+  {% include footer.html %}
+
+</body>
+
+</html>

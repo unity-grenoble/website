@@ -4,7 +4,7 @@ date:   2017-06-13
 title:  "Linear-Light Shading with Linearly Transformed Cosines"
 authors: [
 			{ name: "Eric Heitz"},
-            { name: "Stephen Hill", affiliation: "Lucasfilm", url: ""  }            
+            { name: "Stephen Hill", affiliation: "Lucasfilm"  }            
          ]
 conference: "GPU Zen"
 categories: publication

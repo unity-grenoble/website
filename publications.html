@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Publications
+order: 2
 ---
 
 <div class="home">
@@ -47,7 +48,7 @@ title: Publications
 
             <!-- Generate author list -->
             <div class="publication-authors">
-                {% assign authors_size = {{post.authors.size | minus: 1 }} %}
+                {% assign authors_size = post.authors.size | minus: 1 %}
                 {% for index in (0..authors_size) %}
 
                 {% assign author = post.authors[index] %}
@@ -61,7 +62,7 @@ title: Publications
                     {% assign author_url = author.url %}
                 {% endif %}
                 <span class="publication-authors-name">
-                    <a href="{{ author_url }}">{{ author.name }}</a>{% if index != authors_size %},{% endif %}
+                    {% if author_url != nil %}<a href="{{ author_url }}">{{ author.name }}</a>{% else %}{{ author.name }}{% endif %}{% if index != authors_size %},{% endif %}
                 </span>
                 {% endfor %}
             </div>
@@ -71,9 +72,9 @@ title: Publications
             <span style="font-style:italic;">
                 {% if post.tags contains 'published' %}
                     Published in
-                {% elsif contains 'to_appear' %}
+                {% elsif post.tags contains 'to_appear' %}
                     To appear in
-                {% elsif contains 'techreport' %}
+                {% elsif post.tags contains 'techreport' %}
                 {% endif %}
                 {{ post.conference }}
             </span>
@@ -81,7 +82,7 @@ title: Publications
             <!-- Link to material -->
             {% if post.materials %}
             <span> -
-                {% assign materials_size = {{post.materials.size | minus: 1 }} %}
+                {% assign materials_size = post.materials.size | minus: 1 %}
                 {% for index in (0..materials_size) %}
                    {% assign material = post.materials[index] %}
                     <span><a class="publication-material {{ material.type }}" href="{{ material.url }}">{{ material.name }}</a>{% if index < materials_size %},&nbsp;{% endif %}</span>

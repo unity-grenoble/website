@@ -1,18 +1,11 @@
 ---
 layout: news
-title:  "Unity Grenoble recrute"
-date:   2019-09-10 10:24:05 +0200
+title:  "Offre de stage chez Unity Grenoble"
+date:   2020-10-24 10:24:05 +0200
 categories: news
 permalink: news/recrutement.html
 ---
 
-
-
-Unity Technologies souhaite agrandir son équipe Unity Labs Grenoble, localisé à Montbonnot Saint-Martin, près de Grenoble. Il y a plusieurs ouvertures tant en postes d’ingénieurs que de chercheurs. Nous recrutons des
-* stagiaires de licence/master (ou séjours durant la thèse de doctorat),
-* ingénieur.e.s (sortis d’école ou expérimentés),
-* candidat.e.s à une thèse de doctorat CIFRE, et
-* Chercheurs/chercheuses, jeunes ou expérimenté.e.s.
 
 Nous recherchons des personnes motivées et talentueuses intéressées par la recherche ou l'ingénierie en informatique graphique. Nous offrons la possibilité (et encourageons même) de publier dans des revues et conférences académiques de premier plan.
 
@@ -23,11 +16,9 @@ Notre équipe actuelle s’axe autour du rendu photoréaliste (eg, modélisation
 Des ingénieur.e.s et (aspirants-) chercheurs/chercheuses, expérimenté.e.s en informatique graphique et/ou apprentissage profond (ou ayant/finalisant au moins un master dans le domaine)
 
 ##### Comment candidater ?
-Merci d'adresser un e-mail avec CV, portfolio de projets et/ou liste de publication à la personne adéquate:
-* ~~Pour un stage : contacter Jonathan Dupuy (jonathandu@unity3d.com)~~ **Attention**: Les candidatures de stages 2020 sont maintenant fermées.
-* Pour un poste d'ingénieur ou chercheur : contacter Kenneth Vanhoey (kennethv@unity3d.com)
-* Pour une autre demande : contacter le "research scientist" qui vous paraît pertinent
-  
+Merci de formuler votre demande munie d'un CV, portfolio de projets et/ou liste de publication en suivant le lien suivant:
+[https://careers.unity.com/position/graphics-research-intern/2419777](https://careers.unity.com/position/graphics-research-intern/2419777)
+
 **Attention** : toute candidature qui ne sera pas accompagnée d'un portfolio de projets/publications/travaux réalisés sera classée sans suite.
 
 

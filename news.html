@@ -1,6 +1,7 @@
 ---
 layout: page
 title: News
+order: 1
 ---
 
 <div class="home">
@@ -38,7 +39,7 @@ title: News
 
             <!-- Generate author list -->
             <div class="publication-authors">
-                {% assign authors_size = {{post.authors.size | minus: 1 }} %}
+                {% assign authors_size = post.authors.size | minus: 1 %}
                 {% for index in (0..authors_size) %}
                 
                 {% assign author = post.authors[index] %}

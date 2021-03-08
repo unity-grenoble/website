@@ -3,7 +3,7 @@ layout: publication
 date:   2016-08-02
 title:  "Real-Time Area Lighting: a Journey From Research to Production"
 authors: [
-            { name: "Stephen Hill", affiliation: "Ubisoft Montreal", url: ""  },
+            { name: "Stephen Hill", affiliation: "Ubisoft Montreal"  },
             { name: "Eric Heitz"}
          ]
 conference: "ACM SIGGRAPH Courses 2016"

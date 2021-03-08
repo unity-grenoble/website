@@ -5,9 +5,9 @@ title:  "A Low-Discrepancy Sampler that Distributes Monte Carlo Errors as a Blue
 authors: [
             { name: "Eric Heitz" },
             { name: "Laurent Belcour" },
-            { name: "Victor Ostromoukhov", affiliation: "LIRIS", url: "" },
-            { name: "David Coeurjolly", affiliation: "LIRIS", url: "" },
-            { name: "Jean-Claude Iehl", affiliation: "LIRIS", url: "" }
+            { name: "Victor Ostromoukhov", affiliation: "LIRIS", url: "http://www.iro.umontreal.ca/~ostrom/" },
+            { name: "David Coeurjolly", affiliation: "LIRIS", url: "https://perso.liris.cnrs.fr/david.coeurjolly/" },
+            { name: "Jean-Claude Iehl", affiliation: "LIRIS", url: "http://perso.univ-lyon1.fr/jean-claude.iehl/" }
          ]
 conference: ACM SIGGRAPH Talks 2019
 categories: publication
