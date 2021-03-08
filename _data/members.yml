@@ -40,13 +40,6 @@
   center: labs
   photo: /images/people/thomas_chambon.jpg
 
-- name: Sylvain Durand
-  title: "Research Engineer"
-  center: labs
-  topics: "Blue-Noise Sampling"
-  url: "https://sdurand7.github.io/"
-  photo: /images/people/sylvain_durand.jpg
-
 - name: Frédéric Larue
   title: "Research Scientist"
   center: labs
@@ -55,6 +48,14 @@
   photo: /images/people/frederic_larue.jpg
   
 # Former Labs members
+
+- name: Sylvain Durand
+  title: "Research Intern"
+  center: alumni
+  topics: "Blue-Noise Sampling"
+  url: "https://sdurand7.github.io/"
+  photo: /images/people/sylvain_durand.jpg
+  
 - name: Pierre Moreau
   title: "Research Intern"
   center: alumni
