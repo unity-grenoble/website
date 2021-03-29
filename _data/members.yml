@@ -47,6 +47,17 @@
   url: "https://sites.google.com/view/frederic-larue/home"
   photo: /images/people/frederic_larue.jpg
   
+- name: Heloise de Dinechin
+  title: Research Intern
+  center: labs
+  photo: /images/people/heloise_dinechin.jpg
+
+- name: Ulysse Rigaut
+  title: Research Intern
+  url: "https://ulysserigaut.com/"
+  center: labs
+  photo: /images/people/ulysse_rigaut.jpg
+
 # Former Labs members
 
 - name: Sylvain Durand
