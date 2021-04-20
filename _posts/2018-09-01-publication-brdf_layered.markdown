@@ -7,7 +7,7 @@ authors: [
          ]
 conference: ACM SIGGRAPH 2018
 categories: publication
-url_outside: https://belcour.github.io/blog/research/2018/05/05/brdf-realtime-layered.html
+url_outside: https://belcour.github.io/blog/research/publication/2018/05/05/brdf-realtime-layered.html
 tags: published
 thumbnail: "/images/thumbnails/publication_brdf_layered.png"
 materials: [
