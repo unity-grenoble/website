@@ -13,7 +13,7 @@ categories: publication
 tags: poster
 thumbnail: "/images/thumbnails/publication_sliced_wasserstein_loss.png"
 materials: [
-    { type: "url",   name: "arxiv", url: "https://arxiv.org/pdf/2006.07229.pdf" },
+    { type: "url",   name: "article", url: "https://arxiv.org/pdf/2006.07229.pdf" },
     { type: "code",  name: "code",  url: "https://github.com/tchambon/A-Sliced-Wasserstein-Loss-for-Neural-Texture-Synthesis" },
 ]
 ---
