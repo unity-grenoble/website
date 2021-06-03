@@ -15,7 +15,7 @@ thumbnail: "/images/thumbnails/publication_sliced_wasserstein_loss.png"
 materials: [
     { type: "url",   name: "article", url: "https://arxiv.org/pdf/2006.07229.pdf" },
     { type: "video", name: "video", url: "https://youtu.be/sxtjexgRhm4" },
-    { type: "poster",  name: "poster",  url: "http://kvanhoey.eu/data/research/HVCB21-poster.pdf" },
+    { type: "document",  name: "poster",  url: "http://kvanhoey.eu/data/research/HVCB21-poster.pdf" },
     { type: "code",  name: "code",  url: "https://github.com/tchambon/A-Sliced-Wasserstein-Loss-for-Neural-Texture-Synthesis" },
 ]
 ---
