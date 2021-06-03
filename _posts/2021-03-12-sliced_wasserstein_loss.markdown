@@ -14,6 +14,7 @@ tags: poster
 thumbnail: "/images/thumbnails/publication_sliced_wasserstein_loss.png"
 materials: [
     { type: "url",   name: "article", url: "https://arxiv.org/pdf/2006.07229.pdf" },
+	{ type: "video", name: "video", url: "https://youtu.be/sxtjexgRhm4" },
     { type: "code",  name: "code",  url: "https://github.com/tchambon/A-Sliced-Wasserstein-Loss-for-Neural-Texture-Synthesis" },
 ]
 ---
@@ -23,6 +24,6 @@ materials: [
 We address the problem of computing a textural loss based on the statistics extracted from the feature activations of a convolutional neural network optimized for object recognition (e.g. VGG-19). The underlying mathematical problem is the measure of the distance between two distributions in feature space. The Gram-matrix loss is the ubiquitous approximation for this problem but it is subject to several shortcomings. Our goal is to promote the Sliced Wasserstein Distance as a replacement for it. It is theoretically proven, practical, simple to implement, and achieves results that are visually superior for texture synthesis by optimization or training generative neural networks. 
 </p>
 
-<!--<center>
-<iframe width="560" height="315" src="TODO" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>-->
+<center>
+<iframe width="560" height="315" src="https://youtu.be/sxtjexgRhm4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
