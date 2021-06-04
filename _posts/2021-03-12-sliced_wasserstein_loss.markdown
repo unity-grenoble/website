@@ -8,7 +8,7 @@ authors: [
             { name: "Thomas Chambon" },
             { name: "Laurent Belcour" },
          ]
-conference: CVPR 2021
+conference: "CVPR 2021"
 categories: publication
 tags: poster
 thumbnail: "/images/thumbnails/publication_sliced_wasserstein_loss.png"
