@@ -14,7 +14,7 @@ url_outside: https://onrendering.com
 materials: [
     { type: "url",   name: "webpage", url: "https://onrendering.com" },
     { type: "video", name: "video", url: "https://youtu.be/Ys2j5n9zWys" },
-    { type: "code",  name: "code",  url: "https://github.com/jdupuy/HalfedgeCatmullClark"}
+    { type: "code",  name: "code",  url: "https://github.com/jdupuy/HalfedgeCatmullClark"},
 	{ type: "pdf", name: "supmat", url: "https://onrendering.com/data/papers/catmark/SupplementalGpu.pdf" },
 	{ type: "pdf", name: "supmat", url: "https://onrendering.com/data/papers/catmark/SupplementalCpu.pdf" },
 ]
