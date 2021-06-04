@@ -10,7 +10,7 @@ authors: [
          ]
 conference: "CVPR 2021"
 categories: publication
-tags: poster
+tags: published
 thumbnail: "/images/thumbnails/publication_sliced_wasserstein_loss.png"
 materials: [
     { type: "url",   name: "article", url: "https://arxiv.org/pdf/2006.07229.pdf" },

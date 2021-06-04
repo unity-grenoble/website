@@ -6,7 +6,7 @@ authors: [
             { name: "Jonathan Dupuy" },
             { name: "Kenneth Vanhoey" },
          ]
-conference: "HPG 2021 and CGF"
+conference: "Computer Graphics Forum (HPG 2021 top 30% proceedings)"
 categories: publication
 tags: published
 thumbnail: "/images/thumbnails/publication_catmark.png"
