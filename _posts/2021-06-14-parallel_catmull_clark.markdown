@@ -16,8 +16,8 @@ materials: [
 	{ type: "document",   name: "article", url: "https://onrendering.com/data/papers/catmark/HalfedgeCatmullClark.pdf" },
     { type: "video", name: "video", url: "https://youtu.be/Ys2j5n9zWys" },
     { type: "code",  name: "code",  url: "https://github.com/jdupuy/HalfedgeCatmullClark"},
-	{ type: "document", name: "supmat", url: "https://onrendering.com/data/papers/catmark/SupplementalGpu.pdf" },
-	{ type: "document", name: "supmat", url: "https://onrendering.com/data/papers/catmark/SupplementalCpu.pdf" }
+	{ type: "document", name: "supp. mat. GPU", url: "https://onrendering.com/data/papers/catmark/SupplementalGpu.pdf" },
+	{ type: "document", name: "supp. mat. CPU", url: "https://onrendering.com/data/papers/catmark/SupplementalCpu.pdf" }
 ]
 ---
 
