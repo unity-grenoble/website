@@ -6,11 +6,18 @@ authors: [
             { name: "Jonathan Dupuy" },
             { name: "Kenneth Vanhoey" },
          ]
-conference: HPG 2021 and Computer Graphics Forum
+conference: "HPG 2021 and CGF"
 categories: publication
+tags: published
 thumbnail: "/images/thumbnails/publication_catmark.png"
-include_url: https://onrendering.com
+url_outside: https://onrendering.com
+materials: [
+    { type: "url",   name: "webpage", url: "https://onrendering.com" },
+    { type: "video", name: "video", url: "https://youtu.be/Ys2j5n9zWys" },
+    { type: "code",  name: "code",  url: "https://github.com/jdupuy/HalfedgeCatmullClark"}
+	{ type: "pdf", name: "supmat", url: "https://onrendering.com/data/papers/catmark/SupplementalGpu.pdf" },
+	{ type: "pdf", name: "supmat", url: "https://onrendering.com/data/papers/catmark/SupplementalCpu.pdf" },
+]
 ---
 
-
-
+<!-- With the `url_outside` tag, I can reference an outside blog / website -->
