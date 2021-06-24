@@ -10,10 +10,13 @@ authors: [
 
          ]
 conference: "ACM SIGGRAPH 2016"
-categories: publication
+categories: publication transfered
 tags: published
 thumbnail: "/images/thumbnails/publication_linearly_transformed_cosines2.png"
 banner: "/images/banners/banner_ltc.png"
 url_outside: https://eheitzresearch.wordpress.com/415-2
+transfered: [
+   { name: "Unity's High-Definition Render Pipeline", url: "http://unity.com/" },
+]
 ---
 

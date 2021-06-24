@@ -11,7 +11,6 @@ categories: publication
 tags: published
 thumbnail: "/images/thumbnails/publication_sampling_bluenoise_sig21.png"
 materials: [
-    # { type: "url",   name: "webpage", url: "https://onrendering.com" },
 	{ type: "document", name: "article", url: "https://arxiv.org/pdf/2105.12620" },
     { type: "url", name: "supp. mat.", url: "https://belcour.github.io/blog/supp/2021-sampling-bluenoise/" },
     { type: "code",  name: "code",  url: "https://github.com/unity-grenoble/sampling_bluenoise_sig21"},

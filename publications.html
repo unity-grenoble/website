@@ -77,11 +77,11 @@ order: 2
                 {% elsif post.tags contains 'techreport' %}
                 {% endif %}
                 {{ post.conference }}
-            </span>
+            </span><br />
 
             <!-- Link to material -->
             {% if post.materials %}
-            <span> -
+            <span>
                 {% assign materials_size = post.materials.size | minus: 1 %}
                 {% for index in (0..materials_size) %}
                    {% assign material = post.materials[index] %}
