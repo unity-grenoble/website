@@ -13,6 +13,7 @@ tags: published
 thumbnail: "/images/thumbnails/publication_texture_3channels_loss.png"
 materials: [
 	{ type: "document", name: "article", url: "https://arxiv.org/pdf/2105.13012" },
+    { type: "document", name: "supp. mat.",  url: "https://drive.google.com/file/d/1rP-LlOOm1kd2mypVwj0XZKNjMqb9vwxi/view?usp=sharing" },
 ]
 ---
 
