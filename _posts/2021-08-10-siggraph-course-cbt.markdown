@@ -3,7 +3,10 @@ layout: publication
 date:   2021-08-10
 title:  "Experimenting With Concurrent Binary Trees for Large-scale Terrain Rendering"
 authors: [
-            { name: "Thomas Deliot" "Xiaoling Yao" "Jonathan Dupuy" "Kees Rijnen" }
+            { name: "Thomas Deliot" },
+            { name: "Xiaoling Yao", affiliation: "Unity Technologies" },
+            { name: "Jonathan Dupuy" },
+            { name: "Kees Rijnen", affiliation: "Unity Technologies" }
          ]
 conference: "ACM SIGGRAPH Courses 2021"
 categories: publication
