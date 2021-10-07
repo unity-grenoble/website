@@ -22,7 +22,7 @@ In this work, we tackle the question of how to parameterize a material model (or
 <img width="80%" src="{{ '/images/projects/brdf_linear_space/framework.png' | prepend: site.baseurl }}">
 </center>
 
-With this framework and with a proper visual change function, one can linearize any material model's parameters. For example, we provide three example of reparameterization for roughness, edge-tint and sheen.
+With this framework and with a proper visual change function, one can linearize any material model's parameters. For example, we provide three examples of reparameterization for roughness, edge-tint and sheen.
 
 <center>
 <img width="60%" src="{{ '/images/projects/brdf_linear_space/result.png' | prepend: site.baseurl }}">
