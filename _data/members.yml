@@ -70,21 +70,14 @@
   topics: "Blue-Noise Sampling"
   url: "https://sdurand7.github.io/"
   photo: /images/people/sylvain_durand.jpg
+
+- name: Corentin Salaun
+  title: "Research Intern"
+  center: alumni
+  topics: "Blue-Noise Sampling"
+  url: "https://iribis.github.io/"
+  photo: /images/people/corentin_salaun.jpg
   
-- name: Pierre Moreau
-  title: "Research Intern"
-  center: alumni
-  topics: "Control Variates"
-  url: "https://pmoreau.org/"
-  photo: /images/people/pierre_moreau.jpg
-
-- name: Jad Khouri
-  title: "Research Intern"
-  center: alumni
-  topics: "GPU Tessellation"
-  url: "https://jadkhoury.github.io/"
-  photo: /images/people/jad_khoury.jpg
-
 - name: Philippe Weier
   title: "Research Intern"
   center: alumni
@@ -97,6 +90,22 @@
   topics: "Real-Time Style Transfer"
   center: alumni
   photo: /images/people/adele_saintdenis.jpg
+
+- name: Jad Khouri
+  title: "Research Intern"
+  center: alumni
+  topics: "GPU Tessellation"
+  url: "https://jadkhoury.github.io/"
+  photo: /images/people/jad_khoury.jpg
+
+
+- name: Pierre Moreau
+  title: "Research Intern"
+  center: alumni
+  topics: "Control Variates"
+  url: "https://pmoreau.org/"
+  photo: /images/people/pierre_moreau.jpg
+
  
 - name: Christophe Riccio
   title: "R&amp;D Engineer"
@@ -104,12 +113,6 @@
   photo: /images/people/christophe_riccio.png
   url: "http://github.com/g-truc"
 
-- name: Corentin Salaun
-  title: "Research Intern"
-  center: alumni
-  topics: "Blue-Noise Sampling"
-  url: "https://iribis.github.io/"
-  photo: /images/people/corentin_salaun.jpg
   
 # R&D Engineers
   
