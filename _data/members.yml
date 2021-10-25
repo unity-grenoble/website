@@ -54,12 +54,14 @@
   title: Research Intern
   url: https://heloisededinechin.github.io/
   center: labs
+  topics: "Layered Material Modelling"
   photo: /images/people/heloise_dinechin.jpg
 
 - name: Ulysse Rigaut
   title: Research Intern
   url: "https://ulysserigaut.com/"
   center: labs
+  topics: "Real-time Area Lighting"
   photo: /images/people/ulysse_rigaut.jpg
 
 - name: Sylvain Durand
