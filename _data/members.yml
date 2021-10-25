@@ -53,14 +53,14 @@
 - name: Heloise de Dinechin
   title: Research Intern
   url: https://heloisededinechin.github.io/
-  center: labs
+  center: alumni
   topics: "Layered Material Modelling"
   photo: /images/people/heloise_dinechin.jpg
 
 - name: Ulysse Rigaut
   title: Research Intern
   url: "https://ulysserigaut.com/"
-  center: labs
+  center: alumni
   topics: "Real-time Area Lighting"
   photo: /images/people/ulysse_rigaut.jpg
 
