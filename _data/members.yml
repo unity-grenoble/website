@@ -47,6 +47,9 @@
   url: "https://sites.google.com/view/frederic-larue/home"
   photo: /images/people/frederic_larue.jpg
   
+
+# Former Labs members
+
 - name: Heloise de Dinechin
   title: Research Intern
   url: https://heloisededinechin.github.io/
@@ -58,8 +61,6 @@
   url: "https://ulysserigaut.com/"
   center: labs
   photo: /images/people/ulysse_rigaut.jpg
-
-# Former Labs members
 
 - name: Sylvain Durand
   title: "Research Intern"
