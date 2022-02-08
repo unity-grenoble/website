@@ -43,9 +43,21 @@
 - name: Frédéric Larue
   title: Senior Research Engineer
   center: labs
-  topics: "Scanning"
   url: "https://sites.google.com/view/frederic-larue/home"
   photo: /images/people/frederic_larue.jpg
+  
+- name: Arthur Dufay
+  title: "Research Engineer"
+  center: labs
+  photo: /images/people/arthur_dufay.jpg
+  url: "http://www.linkedin.com/in/arthur-dufay-a9689388/"
+  
+- name: Alban Fichet
+  title: "Research Engineer"
+  center: labs
+  photo: /images/people/alban_fichet.jpg
+  url: "https://afichet.github.io/"
+  
   
 
 # Former Labs members
@@ -115,13 +127,11 @@
 
   
 # R&D Engineers
-  
-- name: Arthur Dufay
+- name: Yvain Raeymaekers
   title: "R&amp;D Engineer"
   center: "R&D"
-  photo: /images/people/arthur_dufay.jpg
-  url: "http://www.linkedin.com/in/arthur-dufay-a9689388/"
-  
-  
-  
+  photo: /images/people/yvain_raeymaekers.jpg
+    
+    
+
   
