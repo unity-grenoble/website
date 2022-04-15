@@ -6,7 +6,7 @@ authors: [
     {name: "Heloise de Dinechin"},
     {name: "Laurent Belcour"}
 ]
-journal: "I3D 2022"
+conference: "I3D 2022"
 categories: publication
 tags: published
 thumbnail: "/images/thumbnails/publication_brdf_layered_diffuse.png"
