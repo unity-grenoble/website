@@ -17,5 +17,6 @@ materials: [
     { type: "video", name: "video", url: "https://youtu.be/P-wRgPe8sDs?t=9258"},
 ]
 url_outside: https://belcour.github.io/blog/research/publication/2022/04/13/brdf-layered-diffuse.html
+award: "Best presentation"
 ---
 

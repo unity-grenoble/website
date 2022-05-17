@@ -18,5 +18,6 @@ materials: [
     { type: "code",  name: "code",  url: "https://github.com/AakashKT/LTC-Anisotropic"},
 ]
 url_outside: "https://aakashkt.github.io/ltc_anisotropic.html"
+award: "Best paper"
 ---
 
