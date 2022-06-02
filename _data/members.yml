@@ -57,8 +57,12 @@
   center: labs
   photo: /images/people/alban_fichet.jpg
   url: "https://afichet.github.io/"
-  
-  
+    
+- name: Wilhem Barbier
+  title: Research Intern
+  url: "https://wbrbr.org/"
+  center: labs
+  photo: /images/people/wilhem_barbier.jpg
 
 # Former Labs members
 
