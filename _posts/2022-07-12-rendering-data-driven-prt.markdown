@@ -17,7 +17,8 @@ categories: publication
 tags: published
 thumbnail: "/images/thumbnails/publication_rendering_data_driven_prt.png"
 materials: [
-    { type: "document", name: "paper", url: "http://arxiv.org/abs/2206.13112" },
+    { type: "document", name: "paper",    url: "http://arxiv.org/abs/2206.13112" },
+    { type: "url",      name: "notebook", url: "https://belcour.github.io/blog/supp/2022-data-driven-prt/index.html" },
 ]
 ---
 
