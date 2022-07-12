@@ -9,7 +9,7 @@ authors: [
 conference: "Eurographics 2022 (short paper)"
 categories: publication
 tags: published
-thumbnail: "/images/thumbnails/loop22.jpg"
+thumbnail: "/images/thumbnails/publication_loop_2022.jpg"
 materials: [
     { type: "document", name: "paper", url: "http://kvanhoey.eu/data/research/VD22.pdf" },
     { type: "url", name: "supp.", url: "http://kvanhoey.eu/data/research/VD22_sup1-cheatsheet.pdf" },
