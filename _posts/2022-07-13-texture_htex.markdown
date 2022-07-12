@@ -11,6 +11,8 @@ categories: publication
 tags: published
 thumbnail: "/images/thumbnails/publication_texture_htex.png"
 materials: [
+    { type: "url",   name: "webpage", url: "https://onrendering.com" },
+    { type: "document", name: "paper", url: "https://onrendering.com/data/papers/htex/htex.pdf" },
     # { type: "document", name: "paper", url: "http://arxiv.org/abs/2206.13112" },
 ]
 ---
