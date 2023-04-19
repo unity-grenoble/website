@@ -58,13 +58,13 @@
   photo: /images/people/alban_fichet.jpg
   url: "https://afichet.github.io/"
     
+# Former Labs members
+
 - name: Wilhem Barbier
   title: Research Intern
   url: "https://wbrbr.org/"
-  center: labs
+  center: alumni
   photo: /images/people/wilhem_barbier.jpg
-
-# Former Labs members
 
 - name: Heloise de Dinechin
   title: Research Intern
